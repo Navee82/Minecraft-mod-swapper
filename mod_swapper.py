@@ -3,7 +3,7 @@ from tkinter import Tk, filedialog, messagebox
 import shutil
 import configparser
 
-version = "1.0.1"
+version = "1.0.2"
 forbidden_names =["EXIT"]
 
 # Créer un objet ConfigParser
@@ -117,7 +117,10 @@ def create_profile(profiles,name):
     print(" Création du profil...")
     if not name in profiles:
         try:
-            path = os.getcwd() + f"/{name}"
+            current_dir = os.getcwd()
+            path = os.path.join(current_dir, name)
+
+            path = path.replace("\\", "/")
 
             os.mkdir(path)
             profiles[name] = path
