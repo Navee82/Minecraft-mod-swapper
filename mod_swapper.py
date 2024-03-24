@@ -3,7 +3,7 @@ from tkinter import Tk, filedialog, messagebox
 import shutil
 import configparser
 
-version = 1.1
+version = 1.0
 forbidden_names =["EXIT"]
 
 # Créer un objet ConfigParser
