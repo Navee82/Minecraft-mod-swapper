@@ -7,6 +7,7 @@ This is my first python project so the code is probably horrible but hey, it wor
 
 # HOW TO USE THE MOD SWAPPER ?
 
+Your first need to have python 3.12 and tkinker installed
 It is actually very simple, put the file in a dedicated folder so you won't have all the configs folders everywhere and just run it.
 It should do it all by itself and you just have to follow the instructions (in french i'm sorry,  I'll translate later)
 Because it is the first version of the project, sometimes it won't work but if you use it without trying anything weird (having enpty profiles for example) it should work perfectly
