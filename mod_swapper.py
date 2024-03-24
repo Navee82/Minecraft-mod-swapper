@@ -3,8 +3,8 @@ from tkinter import Tk, filedialog, messagebox
 import shutil
 import configparser
 
-version = "1.0.2"
-forbidden_names =["EXIT"]
+version = "1.0.3"
+forbidden_names =["0"]
 
 # Créer un objet ConfigParser
 config = configparser.ConfigParser()
@@ -98,7 +98,7 @@ def check_profiles(profiles):
     '''
     Cette fonction renvoie la liste profiles modifiée
     Entreée : le dictionnaire des profiles, peu importe la longueur
-    Sortie : Les profils avec des dossiers inexistants enlevés du dictionnaire si l'utilisateur valide.
+    Sortie : Les profils avec des dossiers inexistants enlevés du dictionnaire si l'utilisateur valide; Les caractères \ changés en "/".
     '''
 
     profiles_to_delete = []
@@ -112,6 +112,7 @@ def check_profiles(profiles):
         del profiles[name]
 
     return profiles
+
 
 def create_profile(profiles,name):
     print(" Création du profil...")
@@ -137,7 +138,10 @@ def create_profile(profiles,name):
 
 
 def delete_profile(to_delete):
-    path = os.getcwd() + f"/{to_delete}"
+    current_dir = os.getcwd()
+    path = os.path.join(current_dir, to_delete)
+
+    path = path.replace("\\", "/")
 
     shutil.rmtree(path)
 
@@ -149,6 +153,9 @@ def delete_profile(to_delete):
 def rename_profile(old_name,new_name):
     old_path = profiles[old_name]
     new_path = os.getcwd() + f"/{new_name}"
+
+    new_path = new_path.replace("\\", "/")
+
     os.rename(old_path,new_path)
 
     del profiles[old_name]
@@ -210,7 +217,7 @@ def ui_show(ui):
         
         case "profils_swap":
             print(" Quel profil souhaitez vous activer ?")
-            print(" Pour revenir à la console principale tapez 'EXIT'")
+            print(" Pour revenir à la console principale tapez '0'")
 
         case "profils_gestion":
             
@@ -299,7 +306,7 @@ except Exception as e:
 # Check des valeurs de la config
 
 if game_folder_path == "None":
-    print(" Il semblerais que vous n'ayez pas encore définit votre emplacement de dossier .minecraft")
+    print(" Il semblerait que vous n'ayez pas encore définit votre emplacement de dossier .minecraft")
     messagebox.showinfo(title="Info",message="Veuillez choisir votre dossier  .minecraft",type="ok")
     
     game_folder_path = ask_game_folder()
@@ -337,7 +344,7 @@ while running == True:
             while profils_swap:
 
                 to_swap = input(" Input ->")
-                if to_swap == "EXIT":
+                if to_swap == "0":
                     profils_swap = False
                     clear()
                     ui_show("main")
@@ -372,7 +379,6 @@ while running == True:
             print("\n   GESTION DES PROFILS")
             ui_show("profiles")
             ui_show("profils_gestion")
-            # print(profiles)
 
             while profils_gestion :
 
