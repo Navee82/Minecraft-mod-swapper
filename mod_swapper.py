@@ -3,7 +3,7 @@ from tkinter import Tk, filedialog, messagebox
 import shutil
 import configparser
 
-version = 1.0
+version = 1.0.1
 forbidden_names =["EXIT"]
 
 # Créer un objet ConfigParser
@@ -117,7 +117,7 @@ def create_profile(profiles,name):
     print(" Création du profil...")
     if not name in profiles:
         try:
-            path = os.getcwd() + f"\{name}"
+            path = os.getcwd() + f"/{name}"
 
             os.mkdir(path)
             profiles[name] = path
@@ -134,7 +134,7 @@ def create_profile(profiles,name):
 
 
 def delete_profile(to_delete):
-    path = os.getcwd() + f"\{to_delete}"
+    path = os.getcwd() + f"/{to_delete}"
 
     shutil.rmtree(path)
 
@@ -145,7 +145,7 @@ def delete_profile(to_delete):
 
 def rename_profile(old_name,new_name):
     old_path = profiles[old_name]
-    new_path = os.getcwd() + f"\{new_name}"
+    new_path = os.getcwd() + f"/{new_name}"
     os.rename(old_path,new_path)
 
     del profiles[old_name]
@@ -348,7 +348,7 @@ while running == True:
                         old_path = profiles[loaded_profile]
                     else: old_path = "None"
                     new_path = profiles[to_swap]
-                    mods_path = game_folder_path+"\mods"
+                    mods_path = game_folder_path+"/mods"
 
                     swapmods(old_path,new_path,mods_path)
 
