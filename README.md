@@ -5,7 +5,7 @@ For peopole to know : I'm a young french trying to figure out how github (and gi
 This is my first python project so the code is probably horrible but hey, it works ! (i might improve it later)
 
 
-# HOW TO USE THE MOD SWAPPER ?
+## HOW TO USE THE MOD SWAPPER ?
 
 Your first need to have python 3.12 and tkinker installed
 It is actually very simple, put the file in a dedicated folder so you won't have all the configs folders everywhere and just run it.
@@ -13,3 +13,10 @@ It should do it all by itself and you just have to follow the instructions (in f
 Because it is the first version of the project, sometimes it won't work but if you use it without trying anything weird (having enpty profiles for example) it should work perfectly
 
 Hope it'll be useful !
+
+### What is upcoming ?
+
+I'm currently working on making the setting ("options") tab working and a "Help" menu.
+The firt release is also planned asap, with the compiled file to make it easier to use.
+I'm planning to add an english translation and a language system directly in the python file, via languages files.
+I also have making the UI and UX way better in mind. (but later, i don't have the skills for now.)
