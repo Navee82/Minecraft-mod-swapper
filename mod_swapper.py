@@ -3,7 +3,7 @@ from tkinter import Tk, filedialog, messagebox
 import shutil
 import configparser
 
-version = "1.0.3"
+version = "1.0.4"
 forbidden_names =["0"]
 
 # Créer un objet ConfigParser
@@ -23,8 +23,12 @@ def generate_config():
 
     config['General'] = {
     'version': version,
-    'game_folder_path': "None",
+    'GAME_FOLDER_PATH': "None",
     'loaded_profile': "None"
+    }
+
+    config['Settings'] ={
+        'transfer_details': True
     }
 
     config['Profiles'] = {}    
@@ -41,7 +45,7 @@ def save_config(param):
     '''
     Cette fonction va écraser les valeurs des clés déjà présentes dans le fichier de configuration
     Entrée : une liste de tuples contenant toutes les catégories, les paramètres à modifier et leurs valeurs respectives
-    Exemple param = [(General,game_folder_path,C:/user/.minecraft),(General,loaded_profile,fabric 1.18.2),(Profiles,server,C:/user/...)]
+    Exemple param = [(General,GAME_FOLDER_PATH,C:/user/.minecraft),(General,loaded_profile,fabric 1.18.2),(PROFILES,server,C:/user/...)]
     '''
     # Définition des paramètres
     try :
@@ -65,7 +69,7 @@ def save_config(param):
 
         # Écriture du ficher pour les données à supprimer
         for profile_name in config["Profiles"].keys():
-            if not profile_name in profiles:
+            if not profile_name in PROFILES:
                 del config['Profiles'][profile_name]
         
         with open('config.ini', "w") as configfile:
@@ -96,7 +100,7 @@ def clear():
 
 def check_profiles(profiles):
     '''
-    Cette fonction renvoie la liste profiles modifiée
+    Cette fonction renvoie la liste PROFILES modifiée
     Entreée : le dictionnaire des profiles, peu importe la longueur
     Sortie : Les profils avec des dossiers inexistants enlevés du dictionnaire si l'utilisateur valide; Les caractères \ changés en "/".
     '''
@@ -145,23 +149,23 @@ def delete_profile(to_delete):
 
     shutil.rmtree(path)
 
-    del profiles[to_delete]
+    del PROFILES[to_delete]
 
-    return profiles
+    return PROFILES
 
 
 def rename_profile(old_name,new_name):
-    old_path = profiles[old_name]
+    old_path = PROFILES[old_name]
     new_path = os.getcwd() + f"/{new_name}"
 
     new_path = new_path.replace("\\", "/")
 
     os.rename(old_path,new_path)
 
-    del profiles[old_name]
-    profiles[new_name] = new_path
+    del PROFILES[old_name]
+    PROFILES[new_name] = new_path
 
-    return profiles
+    return PROFILES
 
 
 
@@ -207,10 +211,10 @@ def ui_show(ui):
         case "profiles":
             print("\n Liste des profils :")
             print(" Nom -> Chemin\n")
-            if len(profiles) == 0:
+            if len(PROFILES) == 0:
                 print(" Il n'y a actuellement aucun profil de créé.")
             else:
-                for name, path in profiles.items():
+                for name, path in PROFILES.items():
                     print(f" {name} -> {path}")
             print(f"\n Profil actif : {loaded_profile}")
             print("\n ----------------------------------\n")
@@ -227,6 +231,13 @@ def ui_show(ui):
             print(" 4) Vérifier les profils")
             print("\n 0) Retour à la console principale")
         
+        case "settings":
+            print("\n       PARAMETRES\n")
+            print(" 1) /!/ Réinitialisation /!/")
+            print(" 2) Changer l'emplacement du dossier .minecraft")
+            print(" 3) Détails du transfer")
+            print("\n 0) Retour à la console principale")
+        
 
 
 
@@ -241,33 +252,55 @@ def swapmods(old,new,folder):
     '''
 
     if not old == "None":
+        transfered_mods = 0
         try:
             # Copie de chaque fichier du dossier mods dans le dossier du profil actuel
+            print(f"\n Transfer du dossier mods dans le dossier {old}...")
             for contenu in os.listdir(folder):
                 new_path = os.path.join(old, contenu)
                 file_path = os.path.join(folder, contenu)
                 if os.path.isfile(file_path):
                     shutil.copy(file_path, new_path)
-                    print(f" MOD : {contenu} transféré avec succès.")
+
+                    if TRANSFER_DETAIL == True:
+                        print(f" MOD : {contenu} transféré avec succès.")
+                    transfered_mods += 1
+
                     os.remove(file_path)
                 elif os.path.isdir(file_path):
                     print(f" Ignoré le dossier {contenu}.")
-            print(f" \nContenu du dossier mod transféré avec succès dans le dossier {old}.")
+
+            if TRANSFER_DETAIL == True:
+                print(f" Contenu du dossier mod transféré avec succès !")
+            else:
+                print(f" Transféré {transfered_mods} mods avec succès dans le dossier {old} !")
+
         except Exception as e:
             print(f" Erreur lors de la copie du contenu du dossier : {e}")
 
+    transfered_mods = 0
     try:
         # Copie de chaque fichier du dossier du nouveau profil dans le dossier mods
+        print(f"\n Transfer du dossier {new} dans le dossier mods...")
         for contenu in os.listdir(new):
             new_path = os.path.join(folder, contenu)
             file_path = os.path.join(new, contenu)
             if os.path.isfile(file_path):
                 shutil.copy(file_path, new_path)
-                print(f" MOD : {contenu} transféré avec succès.")
+                
+                if TRANSFER_DETAIL == True:
+                    print(f" MOD : {contenu} transféré avec succès.")
+                transfered_mods += 1
+
                 os.remove(file_path)
             elif os.path.isdir(file_path):
                 print(f" Ignoré le dossier {contenu}.")
-        print(f" Contenu du dossier {new} transféré avec succès dans le dossier mods.")
+               
+        if TRANSFER_DETAIL == True:
+            print(f" Contenu du dossier {new} transféré avec succès dans le dossier mods !")
+        else:
+            print(f" Transféré {transfered_mods} mods avec succès dans le dossier mods !")
+
     except Exception as e:
         print(f" Erreur lors de la copie du contenu du dossier : {e}")
 
@@ -295,28 +328,28 @@ config.read('config.ini')
 # Assignations des variables
 
 try :
-    game_folder_path = config["General"]["game_folder_path"]
+    GAME_FOLDER_PATH = config["General"]["GAME_FOLDER_PATH"]
     loaded_profile = config["General"]["loaded_profile"]
+    TRANSFER_DETAIL = config["Settings"]["transfer_detail"]
 
-    profiles = {name: path for name, path in config["Profiles"].items()}
+    PROFILES = {name: path for name, path in config["Profiles"].items()}
 except Exception as e:
     messagebox.showerror(title="Erreur", message=f"Erreur lors de la récupération des données de {e}", icon="error", type="ok")
     
 
 # Check des valeurs de la config
 
-if game_folder_path == "None":
+if GAME_FOLDER_PATH == "None":
     print(" Il semblerait que vous n'ayez pas encore définit votre emplacement de dossier .minecraft")
     messagebox.showinfo(title="Info",message="Veuillez choisir votre dossier  .minecraft",type="ok")
     
-    game_folder_path = ask_game_folder()
+    GAME_FOLDER_PATH = ask_game_folder()
 
-while not os.path.exists(game_folder_path+"/mods"):
-    if confirmation("Erreur",f"il semble que le dossier de mods : {game_folder_path} n'existe pas\nVoulez vous le modifier ?"):
-        game_folder_path = ask_game_folder()
+while not os.path.exists(GAME_FOLDER_PATH+"/mods"):
+    if confirmation("Erreur",f"il semble que le dossier de mods : {GAME_FOLDER_PATH} n'existe pas\nVoulez vous le modifier ?"):
+        GAME_FOLDER_PATH = ask_game_folder()
     else:
         break
-
 
 
 
@@ -325,7 +358,7 @@ running = True
 clear()
 ui_show("main")
 
-# print(profiles)
+# print(PROFILES)
 
 while running == True:
     user_input = input(" Input -> ")
@@ -349,16 +382,16 @@ while running == True:
                     clear()
                     ui_show("main")
 
-                elif to_swap not in profiles:
+                elif to_swap not in PROFILES:
                     print(" Le profil que vous souhaitez activer n'existe pas !")
                 elif to_swap == loaded_profile:
                     print(" Le profil est déja actif !")
                 else:
                     if not loaded_profile == "None":
-                        old_path = profiles[loaded_profile]
+                        old_path = PROFILES[loaded_profile]
                     else: old_path = "None"
-                    new_path = profiles[to_swap]
-                    mods_path = game_folder_path+"/mods"
+                    new_path = PROFILES[to_swap]
+                    mods_path = GAME_FOLDER_PATH+"/mods"
 
                     swapmods(old_path,new_path,mods_path)
 
@@ -389,12 +422,12 @@ while running == True:
                         # Création de profil
 
                         profil_name = input(" Comment voulez-vous appeller votre profil : ")
-                        if profil_name in profiles:
+                        if profil_name in PROFILES:
                             print(" Ce profil existe déjà")
                         elif profil_name in forbidden_names:
                             print(" Vous ne pouvez pas appeler votre profil comme cela !")
                         else:
-                            profiles = create_profile(profiles,profil_name)
+                            PROFILES = create_profile(PROFILES,profil_name)
 
 
                     case "2":
@@ -402,14 +435,14 @@ while running == True:
                         to_rename = input(" Quel profil souhaitez vous renommer : ")
                         new_name = input(" Comment souhaitez vous le renommer : ")
 
-                        if to_rename not in profiles:
+                        if to_rename not in PROFILES:
                             print(" Le profil que vous souhaitez renommer n'existe pas !")
-                        elif new_name in profiles:
+                        elif new_name in PROFILES:
                             print(" Le nouveau nom de profil existe déjà !")
                         elif new_name in forbidden_names:
                             print(" Vous ne pouvez pas appeler votre profil comme cela !")
                         else:
-                            profiles = rename_profile(to_rename,new_name)
+                            PROFILES = rename_profile(to_rename,new_name)
                             print(f" Le profil {to_rename} a bien été renommé en {new_name}")
                             if loaded_profile == to_rename:
                                 loaded_profile = new_name
@@ -419,21 +452,21 @@ while running == True:
 
                         to_delete = input(" Quel profil souhaitez vous supprimer : ")
 
-                        if to_delete not in profiles:
+                        if to_delete not in PROFILES:
                             print(" Le profil que vous shouhaitez supprimer n'existe pas.")
                         elif to_delete == loaded_profile:
                             print(" Vous ne pouvez pas supprimer le profil actif !")
                 
                         else:
-                            profiles = delete_profile(to_delete)
+                            PROFILES = delete_profile(to_delete)
                             print(f" Le profil {to_delete} a bien été supprimé !")
 
                     case "4":
                         # Vérification des profils (ne vérifie que config -> dossiers, à approfondir)
 
                         print("\n Vérification des profils...")
-                        profiles = check_profiles(profiles)
-                        if loaded_profile not in profiles:
+                        PROFILES = check_profiles(PROFILES)
+                        if loaded_profile not in PROFILES:
                             loaded_profile = "None"
                         print(" Profils vérifiés !")
                     case "0":
@@ -445,18 +478,53 @@ while running == True:
                     
         case "3":
             # PARAMETRES
-            print(" Cette fonction n'est pas encore disponnible (à venir)")
+            clear()
+            ui_show("settings")
+
+            settings = True
+
+            while settings:
+                user_input = input(" Input ->")
+
+                match user_input:
+
+                    case "1":
+                        # Reinitialisation complète
+
+                        if confirmation("Confirmation","Etes vous sûr de vouloir réinitialiser le programme, cela signifie la suppression de tous vos profils, de leur contenu et du fichier de configuration."):
+                            for value in PROFILES.keys():
+                                delete_profile(value)
+
+                            config_path = "config.ini"
+                            os.remove(config_path)
+                    
+                    case "2":
+                        ask_game_folder()
+                    
+                    case "3":
+                        TRANSFER_DETAIL = confirmation("Modifier les détails affichés lors du changement des mods.","Voulez vous l'affichage détaillé lors du transfer des mods ?")
+
+                    case "0":
+                        settings = False
+                        clear()
+                        ui_show("main")
+                    case _:
+                        print(" Veuillez choisir une option existante.")
+
+
         case "4":
             # SAUVEGARDE DU PROGRAMME
             print(" Sauvegarde du programme...")
 
             config_values = [
             ("General", "version", str(version)),
-            ("General", "game_folder_path", game_folder_path),
-            ("General", "loaded_profile", loaded_profile)
+            ("General", "GAME_FOLDER_PATH", GAME_FOLDER_PATH),
+            ("General", "loaded_profile", loaded_profile),
+            ("Settings", "transfer_detail", str(TRANSFER_DETAIL))
             ]
-            # Ajout des valeurs de profiles au format requis
-            for profile_name, profile_path in profiles.items():
+
+            # Ajout des valeurs des profiles au format requis
+            for profile_name, profile_path in PROFILES.items():
                 config_values.append(("Profiles", profile_name, profile_path))
 
             save_config(config_values)
@@ -466,13 +534,11 @@ while running == True:
                 running = False
         case "debug":
             print(f"version= {version}")
-            print(f"game_folder_path= {game_folder_path}")
+            print(f"GAME_FOLDER_PATH= {GAME_FOLDER_PATH}")
+            print(f"loaded_profile= {loaded_profile}")
             print(type(loaded_profile))
-            print(f"loaded_profile= {loaded_profile}\n")
-            print(profiles)
+            print(f"transfer_detail= {TRANSFER_DETAIL}")
+
+            print(f"\nDictionnaire des profils :\n{PROFILES}")
         case _:
             print(" Veuillez choisir une option existante.")
-
-
-print("fin")
-
