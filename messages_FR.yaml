@@ -10,7 +10,6 @@
 # Version du fichier de langue : 
 language_version : 1.0.5
 
-test_double : "ceci est un double placeholder, %test1% et %test2%"
 #  NE SURTOUT PAS MODIFIER LE CONTENU DU FICHIER SI VOUS NE SAVEZ PAS CE QUE VOUS FAITES !!!
 
 ###############################################
