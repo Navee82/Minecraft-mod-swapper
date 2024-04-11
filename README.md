@@ -23,7 +23,7 @@ I would love feedbacks on anything and if you have any questions, don't hesitate
 ## What is upcoming ?
 
 I'm currently working on making a "Help" menu, but i will probably make a full "wiki" on how to use it in **details** (in this file or another idk).
-I think of an auto updater, because if you use "old" versions of the mod swapper it might cause issues if you update it. I'm trying to make it the most user-friendly possible. The auto-updater should start updating from 1.0.4 or 1.0.5. For each version below, you need to either reset everything or update manually your config.
+I think of an auto updater, because if you use "old" versions of the mod swapper it might cause issues (mostly for the config) if you update it. I'm trying to make it the most user-friendly possible. The auto-updater should start updating from 1.0.4 or 1.0.5. For each version below, you need to either reset everything or update manually your config.
 The first release is also planned asap, with the compiled file to make it easier to use.
 
 I also have making the UI and UX way better in mind. (but later, i don't have the skills for now.)
