@@ -7,7 +7,7 @@ This is my first python project, the code is probably horrible but hey, it works
 
 ## HOW TO USE THE MOD SWAPPER ?
 
-Your first need to have python 3.12 and tkinker installed
+Your first need to have python 3.12, tkinker and PyYaml installed
 It is actually very simple, put the file in a dedicated folder so you won't have all the configs folders everywhere and just run it.
 
 **You need a language file to run the program !!**
