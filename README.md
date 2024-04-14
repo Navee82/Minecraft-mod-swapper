@@ -12,7 +12,7 @@ Your first need to have python 3.12, tkinker and PyYaml installed.
 It is actually very simple, put the file in a dedicated folder so you won't have all the configs folders everywhere and just run it.
 
 **You need a language file to run the program !!**
-To use the language file, simply download the language you want (messages_EN.yaml for example) and the program should automatically ask you for it.
+To use the language file, simply download the language you want (messages_EN.yaml for example) and the program should automatically ask you for it. Messages files are in the messages folder.
 
 It should do the rest all by itself and you only have to follow the instructions on screen.
 Because it is the early versions of the project, sometimes it could not work properly. But if you use it without trying anything weird (having enpty profiles for example) it should work perfectly. (I make it better every time)
