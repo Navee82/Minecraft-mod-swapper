@@ -4,13 +4,30 @@ import shutil
 import configparser
 import yaml
 
-version = "1.0.5"
+version = "1.0.6"
 supported_language_versions = ["1.0.5"]
-forbidden_names =["0"]
+forbidden_names = ["0"]
 GITHUB = "https://github.com/Navee82/Minecraft-mod-swapper"
 
 # Créer un objet ConfigParser
 config = configparser.ConfigParser()
+
+def update(old_version):
+    match old_version:
+        case "1.0.3":
+            config["Settings"]["transfer_detail"] = False
+            config["General"]["version"] = "1.0.4"
+        
+        case "1.0.4":
+            config["Settings"]["language"] = None
+            config["General"]["version"] = "1.0.5"
+        
+        case "1.0.5":
+            config["General"]["version"] = "1.0.6"
+
+    with open('config.ini', "r+") as configfile:
+        config.write(configfile)
+    
 
 def message(message_id, *value):
     if message_id in LANGUAGE:
@@ -50,11 +67,11 @@ def generate_config():
 
     config['General'] = {
     'version': version,
-    'GAME_FOLDER_PATH': "None",
-    'loaded_profile': "None"
+    'GAME_FOLDER_PATH': None,
+    'loaded_profile': None
     }
 
-    config['Settings'] ={
+    config['Settings'] = {
         'language': None,
         'transfer_details': True
     }
@@ -356,14 +373,22 @@ def swapmods(old,new,folder):
 
 # Check de la config
 if check_for_config() == False:
-    print("Unable to find a configuration file ! \nCreating the file : 'config.ini'")
+    print(" Unable to find a configuration file ! \nCreating the file : 'config.ini'")
     generate_config()
-    print("Successfully created the config file !")
+    print(" Successfully created the config file !")
 else:
-    print("Found the config file ! \nRecovering data...")
+    print(" Found the config file ! \nRecovering data...")
 
 # Lecture du fichier de config
 config.read('config.ini')
+
+# Auto updater
+print(" Checking for updates...")
+while config["General"]["version"] != version:
+    config.read('config.ini')
+    update(config["General"]["version"])
+print(" Program is up to date !")
+
 
 # Récupération de la langue
 
