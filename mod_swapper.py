@@ -5,7 +5,7 @@ import configparser
 import yaml
 
 version = "1.0.6"
-supported_language_versions = ["1.0.5"]
+supported_language_versions = ["1.0.6"]
 forbidden_names = ["0"]
 GITHUB = "https://github.com/Navee82/Minecraft-mod-swapper"
 
@@ -45,6 +45,7 @@ def message(message_id, *value):
     else:
         message = f"Error : message id '{message_id}' does not exists in message file"
     return message
+
 
 def check_for_config():
     config_path = "config.ini"
@@ -97,7 +98,7 @@ def save_config(param):
         for category, key, value in param:
 
             if not category in config:
-                messagebox.showerror(title=message("messagebox_title_error"), message=f"La catégorie {category} est inexistante", icon="error", type="ok")
+                messagebox.showerror(title=message("messagebox_title_error"), message=message("unknown_category",category), icon="error", type="ok")
             else:
                 if key in config[category]:
                     config[category][key] = value
@@ -106,7 +107,7 @@ def save_config(param):
                     if category == "Profiles":
                         config[category][key] = value
                     else:
-                        messagebox.showerror(title=message("messagebox_title_error"), message=f"La clé {key} est inexistante", icon="error", type="ok")
+                        messagebox.showerror(title=message("messagebox_title_error"), message=message("unknown_key",key), icon="error", type="ok")
         
         # Écriture du fichier pour les données à ajouter
         with open('config.ini', "r+") as configfile:

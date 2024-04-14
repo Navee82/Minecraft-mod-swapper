@@ -8,7 +8,7 @@
 # û = \u00fb
 
 # Version du fichier de langue : 
-language_version : 1.0.5
+language_version : 1.0.6
 
 #  NE SURTOUT PAS MODIFIER LE CONTENU DU FICHIER SI VOUS NE SAVEZ PAS CE QUE VOUS FAITES !!!
 
@@ -25,6 +25,8 @@ language_version : 1.0.5
 saved_config: " Config sauvegard\u00e9e !"
 saving_error_full : " Une erreur s'est produite lors de la sauvegarde des donn\u00e9es.\nSi le probl\u00e8me persiste veuillez contacter le cr\u00e9ateur de ce logiciel"
 saving_error : " Erreur lors de la sauvegarde :"
+unknown_category : "La catégorie %category% est inexistante"
+unknown_key : "La clé %key% est inexistante"
 
 # create_profile :
 creating_profile : " Cr\u00e9ation du profil..."

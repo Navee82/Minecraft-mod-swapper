@@ -8,7 +8,7 @@
 # û = \u00fb
 
 # Version of the language file : 
-language_version : 1.0.5
+language_version : 1.0.6
 
 #  DO NOT MODIFY THIS FILE IF YOU DO NOT KNOW WHAT YOU ARE DOING
 
@@ -25,6 +25,8 @@ language_version : 1.0.5
 saved_config: " Saved config !"
 saving_error_full : " An error occurred while saving the data.\nIf the problem persists, please contact the creator of this software"
 saving_error : " Erreur lors de la sauvegarde :"
+unknown_category : "The category %category% does not exist"
+unknown_key : "The key %key% does not exist"
 
 # create_profile :
 creating_profile : " Creating profile..."
