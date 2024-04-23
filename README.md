@@ -7,7 +7,7 @@ This is my first python project, the code is probably horrible but hey, it works
 
 ## HOW TO USE THE MOD SWAPPER ?
 
-/!\ I messed up, the latest commits might not work, the nexts should be fixed /!\
+/!\ I messed up, the latest commits might not work, the nexts should be fixed, stay on the version 1.0.5 /!\
 
 Your first need to have python 3.12, tkinker and PyYaml installed.
 
