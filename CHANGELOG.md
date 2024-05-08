@@ -31,7 +31,7 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1
 ### **Language files**
 
 **Added**
-- 🟩 Added 13 messages
+- 🟩 Added 15 messages
 
 **Changed**
 - 🟦 Languages files version is now 1.1.0
@@ -39,12 +39,12 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1
 ### **Profiles swap**
 
 **Changed**
-- 🟧 other files than .jar files are not longer moved by the mod swapper
+- 🟩 other files than .jar files are not longer moved by the mod swapper
 
 ### **Profiles gestion**
 
 **Added**
-- 🟧 New profiles can now be imported via folders
+- 🟩 New profiles can now be imported via folders
 
 ### **Settings**
 
