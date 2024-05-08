@@ -31,7 +31,7 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1
 ### **Language files**
 
 **Added**
-- 🟩 Added 15 messages
+- 🟩 Added 18 messages
 
 **Changed**
 - 🟦 Languages files version is now 1.1.0
