@@ -40,7 +40,7 @@ I also have making the UI and UX way better in mind. (but later, i don't have th
 
 | Status  | Version                                                                                                                | file type  | release date |
 |:-------:|:-------:                                                                                                               |:----------:|:------------:|
-| in dev  | [1.1.0](https://github.com/Navee82/Minecraft-mod-swapper/blob/83b8470a8eba4115e8251717e7831dd48fb93381/mod_swapper.py) | python     | 05/15/24     |
+| release | [1.1.0](https://github.com/Navee82/Minecraft-mod-swapper/blob/83b8470a8eba4115e8251717e7831dd48fb93381/mod_swapper.py) | python     | 05/15/24     |
 | release | [1.0.5](https://github.com/Navee82/Minecraft-mod-swapper/blob/9611a3e36b55e464bea3b7b6289e2c7eb7766235/mod_swapper.py) | python     | 04/10/24     |
 | release | [1.0.4](https://github.com/Navee82/Minecraft-mod-swapper/blob/5fd6b10cde20f5b5aa147e3427ce58058c619071/mod_swapper.py) | python     | 03/28/24     |
 | release | [1.0.3](https://github.com/Navee82/Minecraft-mod-swapper/blob/0d486d23eebcae3367cf1c675a6ba96c4dbed2a4/mod_swapper.py) | python     | 03/24/24     |
