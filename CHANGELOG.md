@@ -11,7 +11,7 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1
 🟧 stands for work in progress<br>
 
 
-## [v1.1.0] - Unreleased
+## [v1.1.0] - 05/15/24
 
 ### **General**
 
@@ -31,7 +31,7 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1
 ### **Language files**
 
 **Added**
-- 🟩 Added 18 messages
+- 🟩 Added 20 messages
 
 **Changed**
 - 🟦 Languages files version is now 1.1.0
