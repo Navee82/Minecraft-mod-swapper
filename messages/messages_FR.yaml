@@ -8,7 +8,7 @@
 # û = \u00fb
 
 # Version du fichier de langue : 
-language_version : 1.0.6
+language_version : 1.1.0
 
 #  NE SURTOUT PAS MODIFIER LE CONTENU DU FICHIER SI VOUS NE SAVEZ PAS CE QUE VOUS FAITES !!!
 
@@ -20,19 +20,28 @@ language_version : 1.0.6
 #|_|   \__,_|_| |_|\___|\__|_|\___/|_| |_|___/#
 ###############################################
 
+# check_connexion :
+checking_connexion : " V\u00e9rification de la connexion internet..."
+
+#get_latest_version :
+checking_update : " Recherche d'une mise \u00e0 jour..."
 
 # save_config :
 saved_config: " Config sauvegard\u00e9e !"
 saving_error_full : " Une erreur s'est produite lors de la sauvegarde des donn\u00e9es.\nSi le probl\u00e8me persiste veuillez contacter le cr\u00e9ateur de ce logiciel"
 saving_error : " Erreur lors de la sauvegarde :"
-unknown_category : "La catégorie %category% est inexistante"
-unknown_key : "La clé %key% est inexistante"
+unknown_category : "La cat\u00e9gorie %category% est inexistante"
+unknown_key : "La cl\u00e9 %key% est inexistante"
 
 # create_profile :
 creating_profile : " Cr\u00e9ation du profil..."
 created_profile : " Profil cr\u00e9\u00e9 !"
 creating_profile_error : " Erreur lors de la cr\u00e9ation du profil !"
 profile_already_exists : " Ce profil existe d\u00e9j\u00e0 !"
+
+# import_profile :
+importing_profile_error : " Erreur lors de l'importation du profil !"
+imported_profile : " Profil import\u00e9 !"
 
 # ask_game_folder :
 ask_game_folder_window_title : "Choisir votre dossier .minecraft"
@@ -57,6 +66,7 @@ profile_to_swap : " Quel profil souhaitez-vous activer ?"
 type_to_main : " Pour revenir \u00e0 la console principale tapez '0'"
 # profile gestion
 create_profile : "Cr\u00e9er un profil"
+import_profile : "Importer un profil"
 rename_profile : "Renommer un profil"
 delete_profile : "Supprimer un profil"
 verify_profiles : "V\u00e9rifier les profils"
@@ -65,11 +75,14 @@ settings_title : "PARAMETRES"
 reset_settings : "/!/ R\u00e9initialisation /!/"
 change_minecraft_folder : "Changer l'emplacement du dossier .minecraft"
 transfer_details : "D\u00e9tails du transfert"
+change_language : "Changer le fichier de langue"
+auto_update : "Mise a jour automatique"
 
 # swapmods
 transfered_mod_fancy : " MOD : %mod_id% transf\u00e9r\u00e9 avec succ\u00e8s."
 transfered_mod_light : " Transf\u00e9r\u00e9 %mods_number% mods avec succ\u00e8s !"
 ignored_folder : " Ignor\u00e9 le dossier %folder%."
+ignored_file : " Ignor\u00e9 le fichier %file_name%.%file_extension%."
 copy_error : " Erreur lors de la copie du contenu du dossier : %error%"
 
 swapping_mods_to_old : " Transfert du dossier mods dans le dossier %old_folder%..."
@@ -93,10 +106,15 @@ messagebox_title_info : "Info"
 messagebox_title_confirm : "Confirmation"
 
 retrieving_data_error : "Erreur lors de la r\u00e9cup\u00e9ration des donn\u00e9es de %error%"
+downloaded_latest : "La derni\u00e8re version du programme a \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9e avec succ\u00e8s !!\nLe programme va red\u00e9marrer"
+
+# auto update
+up_to_date : " Vous avez la derni\u00e8re version du programme !"
+downloading_latest : " T\u00e9l\u00e9chargement de la derni\u00e8re version du mod swapper..."
 
 # config verifying
 minecraft_folder_not_defined : " Il semblerait que vous n'ayez pas encore d\u00e9fini votre emplacement de dossier .minecraft"
-minecraft_folder_not_existing : "Il semble que le dossier de mods : %game_folder_path% n'existe pas\nVoulez-vous le modifier ?"
+minecraft_folder_not_existing : "Il semble que le dossier de mods : '%game_folder_path%' n'existe pas\nVous devez le modifier pour que le programme fonctionne correctement."
 select_minecraft_folder : "Veuillez choisir votre dossier  .minecraft"
 
 # NAVIGATION MENU
@@ -115,7 +133,11 @@ profile_already_exists : " Ce profil existe d\u00e9j\u00e0"
 # profile creation
 profile_naming : " Comment voulez-vous appeller votre profil : "
 
-#profile renaming
+# profile importation
+profile_importing : " Choisissez le dossier \u00e0 importer"
+forbidden_importing : " Vous ne pouvez pas importer un dossier avec ce nom !"
+
+# profile renaming
 profile_to_rename : " Quel profil souhaitez vous renommer : "
 profile_to_rename_not_existing : " Le profil que vous souhaitez renommer n'existe pas !"
 successful_renaming : " Le profil %old_name% a bien \u00e9t\u00e9 renomm\u00e9 en %new_name%"
@@ -132,9 +154,19 @@ profile_not_existing : "Il semble que le profil %name% -> %path% n'existe pas su
 checked_profiles : " Profils v\u00e9rifi\u00e9s !"
 
 # SETTINGS
-messagebox_message_reset : "Etes vous s\u00fbr de vouloir r\u00e9initialiser le programme, cela signifie la suppression de tous vos profils, de leur contenu et du fichier de configuration."
-messagebox_title_details : "Modifier les d\u00e9tails affich\u00e9s lors du changement des mods."
+messagebox_message_reset : "\u00cates vous s\u00fbr de vouloir r\u00e9initialiser le programme, cela signifie la suppression de tous vos profils, de leur contenu et du fichier de configuration."
+
+messagebox_title_details : "D\u00e9tails lors du changement des mods."
 messagebox_message_details : "Voulez-vous l'affichage d\u00e9taill\u00e9 lors du transfer des mods ?"
+
+messagebox_title_update : "Mise \u00e0 jour automatique."
+messagebox_message_update : "Voulez-vous activer les mises \u00e0 jour automatiques du programme ?"
+
+messagebox_title_switch_language : "Changement de langue"
+messagebox_message_switch_language : "Voulez-vous changer votre fichier de langue ?"
+new_language_file : "S\u00e9lectionnez le nouveau fichier de langue"
+uncorrect_language_file : "Votre fichier de langue n'est pas correct (probablement pas \u00e0 jour), veuillez en t\u00e9l\u00e9charger un correct sur la page GitHub :\n%github%"
+imported_new_language : " Le nouveau fichier de langue a été importé avec succès !"
 
 # SAVING PROGRAM
 saving_program : " Sauvegarde du programme..."

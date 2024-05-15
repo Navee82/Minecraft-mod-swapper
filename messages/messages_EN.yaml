@@ -8,7 +8,7 @@
 # û = \u00fb
 
 # Version of the language file : 
-language_version : 1.0.6
+language_version : 1.1.0
 
 #  DO NOT MODIFY THIS FILE IF YOU DO NOT KNOW WHAT YOU ARE DOING
 
@@ -20,6 +20,11 @@ language_version : 1.0.6
 #|_|   \__,_|_| |_|\___|\__|_|\___/|_| |_|___/#
 ###############################################
 
+# check_connexion :
+checking_connexion : " Checking internet connexion..."
+
+#get_latest_version :
+checking_update : " Searching for update..."
 
 # save_config :
 saved_config: " Saved config !"
@@ -33,6 +38,10 @@ creating_profile : " Creating profile..."
 created_profile : " Created profile !"
 creating_profile_error : " An issue occurred while creating profile !"
 profile_already_exists : " This profile already exists !"
+
+# import_profile :
+importing_profile_error : " An error has occured while importing the profile !"
+imported_profile : " Succesuffully imported profile !"
 
 # ask_game_folder :
 ask_game_folder_window_title : "Choose your .minecraft folder"
@@ -57,6 +66,7 @@ profile_to_swap : " Which profile do you want to activate ?"
 type_to_main : " To go back to the main console, type '0'"
 # profile gestion
 create_profile : "Create a profile"
+import_profile : "Import a profile"
 rename_profile : "Rename a profile"
 delete_profile : "Delete a profile"
 verify_profiles : "Verify the profiles"
@@ -65,11 +75,14 @@ settings_title : "SETTINGS"
 reset_settings : "/!/ Reset /!/"
 change_minecraft_folder : "Change the .minecraft folder path"
 transfer_details : "Transfer details"
+change_language : "Change the language file"
+auto_update : "Auto update"
 
 # swapmods
 transfered_mod_fancy : " MOD : %mod_id% successfully transfered."
 transfered_mod_light : " Transfered %mods_number% mods with success !"
 ignored_folder : " Ignored the folder : %folder%."
+ignored_file : " Ignored the file %file_name%.%file_extension%."
 copy_error : " Error while copying folder contents : %error%."
 
 swapping_mods_to_old : " Transfering mods folder to %old_folder% folder..."
@@ -93,6 +106,11 @@ messagebox_title_info : "Info"
 messagebox_title_confirm : "Confirmation"
 
 retrieving_data_error : "An error occured while retriving the data of %error%"
+downloaded_latest : "The latest version of the program has successfully been downloaded !\nThe program will restart."
+
+# auto update
+up_to_date : " Vous avez la derni\u00e8re version du programme !"
+downloading_latest : " T\u00e9l\u00e9chargement de la derni\u00e8re version du mod swapper..."
 
 # config verifying
 minecraft_folder_not_defined : " It seems like you didn't set your .minecraft folder path yet"
@@ -115,7 +133,11 @@ profile_already_exists : " This profile already exists"
 # profile creation
 profile_naming : " How would you like to name your profile : "
 
-#profile renaming
+# profile importation
+profile_importing : " Choose the folder to import"
+forbidden_importing : " You can't import a folder with this name !"
+
+# profile renaming
 profile_to_rename : " Which profile do you want to rename : "
 profile_to_rename_not_existing : " This profile does not exist !"
 successful_renaming : " Successfully renamed %old_name% in %new_name%"
@@ -133,11 +155,21 @@ checked_profiles : " Profiles checked !"
 
 # SETTINGS
 messagebox_message_reset : "Are you sure you want to reset the program, this means deleting all your profiles, their contents and the configuration file."
+
 messagebox_title_details : "Change the details displayed when swapping mods."
 messagebox_message_details : "Do you want the detailed display when transferring mods ?"
+
+messagebox_title_update : "Auto update."
+messagebox_message_update : "Do you want to activate the auto update of the program ?"
+
+messagebox_title_switch_language : "Switch language"
+messagebox_message_switch_language : "Do you want to change your language file ?"
+new_language_file : "Select a new language file"
+uncorrect_language_file : "Your language file is uncorrect (probably not up to date), please download a corect one on the GitHub page :\n%github%"
+imported_new_language : " Successfully imported the new langage file !"
 
 # SAVING PROGRAM
 saving_program : " Saving program..."
 
 # QUIT PROGRAM
-quit_program : "Are you sure you want to quit the program? Any unsaved data will be lost !"
+quit_program : "Are you sure you want to quit the program ?\nAny unsaved data will be lost !"
