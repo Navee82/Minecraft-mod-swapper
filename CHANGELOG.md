@@ -11,6 +11,14 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1
 🟧 stands for work in progress<br>
 
 
+## [v1.1.1] - Unreleased
+
+### **General**
+
+**Fixed**
+- 🟪 Fixed an auto config update error, version was updated to 1.0.6 instead of 1.1.0
+
+
 ## [v1.1.0] - 05/15/24
 
 ### **General**
