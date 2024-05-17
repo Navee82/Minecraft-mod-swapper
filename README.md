@@ -42,6 +42,7 @@ I also have making the UI and UX way better in mind. (but later, i don't have th
 Besides that, I don't really know what to add or change in the program, I would like any suggestion !
 
 ## Modswapper versions
+Any notable version will be reported in this section. Versions like hotfixes and minor code modifications will not be reported here.
 
 | Status  | Version                                                                                                                | file type  | release date |
 |:-------:|:-------:                                                                                                               |:----------:|:------------:|
