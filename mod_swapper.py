@@ -5,7 +5,7 @@ import configparser
 import yaml
 import requests
 
-version = "1.1.0"
+version = "1.1.1"
 supported_language_versions = ["1.1.0"]
 forbidden_names = ["0"]
 GITHUB = "https://github.com/Navee82/Minecraft-mod-swapper"
@@ -65,8 +65,11 @@ def update_config(old_version):
             config["General"]["version"] = "1.0.5"
         
         case "1.0.5":
-            config["General"]["version"] = "1.0.6"
+            config["General"]["version"] = "1.1.0"
             config["Settings"]["auto_update"] = "True"
+            
+        case "1.1.0":
+            config["General"]["version"] = "1.1.1"
 
     with open('config.ini', "r+") as configfile:
         config.write(configfile)
