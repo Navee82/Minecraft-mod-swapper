@@ -32,7 +32,6 @@ I would love feedbacks on anything and if you have any questions, don't hesitate
 
 ## What is upcoming ?
 
-**I am coming with a big update, it might take a little longer to release**
 
 I'm currently working on making a "Help" menu, but i will probably make a full "wiki" on how to use it in **details** (in this file or another idk).
 I'm trying to make it the most user-friendly possible.
