@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+The format is inspired from [Keep a Changelog](https://keepachangelog.com).
 
 🟩 stands for added<br>
 🟦 stands for changed<br>
@@ -11,6 +11,28 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1
 🟧 stands for work in progress<br>
 
 
+## [v1.1.2] - Unreleased
+
+### **General**
+
+**Added**
+- 🟩 Added the possibility to cancel actions by typing "CANCEL".
+  
+**Changed**
+- 🟦 Changed the normalisation of path case, now using ``os.path.normcase()`` instead of ``path.replace("\\","/")``
+
+**Removed**
+- 🟥 Removed the RELEASE variable and the release check in the get_latest_version() function since it has no sense to keep it in the python file.
+
+### **Settings**
+
+**Changed**
+- 🟦 Changed the way renaming profiles was handeled. Does not affect the UX.
+
+**Fixed**
+- 🟪 Fixed a non translated message in the renaming process, added it to the language file.
+<br>
+
 ## [v1.1.1] - 05/18/24
 
 ### **General**
@@ -18,6 +40,7 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1
 **Fixed**
 - 🟪 Fixed an auto config update error, version was updated to 1.0.6 instead of 1.1.0
 
+<br>
 
 ## [v1.1.0] - 05/15/24
 
