@@ -8,7 +8,7 @@
 # û = \u00fb
 
 # Version du fichier de langue : 
-language_version : 1.1.0
+language_version : 1.1.2
 
 #  NE SURTOUT PAS MODIFIER LE CONTENU DU FICHIER SI VOUS NE SAVEZ PAS CE QUE VOUS FAITES !!!
 
@@ -54,6 +54,7 @@ option_manage_profiles : "G\u00e9rer les profils"
 option_settings : "Param\u00e8tres"
 option_save : "Sauvegarder"
 option_quit : "Quitter le programme"
+option_cancel : " Tapez CANCEL pour annuler l'action"
 
 back_to_main : "Retour \u00e0 la console principale"
 # profiles list
@@ -72,10 +73,10 @@ delete_profile : "Supprimer un profil"
 verify_profiles : "V\u00e9rifier les profils"
 # settings
 settings_title : "PARAMETRES"
-reset_settings : "/!/ R\u00e9initialisation /!/"
+reset_settings : "/!/ R\u00e9initialisation Totale /!/"
 change_minecraft_folder : "Changer l'emplacement du dossier .minecraft"
 transfer_details : "D\u00e9tails du transfert"
-change_language : "Changer le fichier de langue"
+change_language : "Changer le fichier de langue, fichier actuel"
 auto_update : "Mise a jour automatique"
 
 # swapmods
@@ -139,6 +140,7 @@ forbidden_importing : " Vous ne pouvez pas importer un dossier avec ce nom !"
 
 # profile renaming
 profile_to_rename : " Quel profil souhaitez vous renommer : "
+new_profile_name : " Comment souhaitez vous le renommer : "
 profile_to_rename_not_existing : " Le profil que vous souhaitez renommer n'existe pas !"
 successful_renaming : " Le profil %old_name% a bien \u00e9t\u00e9 renomm\u00e9 en %new_name%"
 

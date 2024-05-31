@@ -8,7 +8,7 @@
 # û = \u00fb
 
 # Version of the language file : 
-language_version : 1.1.0
+language_version : 1.1.2
 
 #  DO NOT MODIFY THIS FILE IF YOU DO NOT KNOW WHAT YOU ARE DOING
 
@@ -54,6 +54,7 @@ option_manage_profiles : "Manage profiles"
 option_settings : "Settings"
 option_save : "Save"
 option_quit : "Quit the program"
+option_cancel : " Type CANCEL to cancel the action"
 
 back_to_main : "Go back to the main console"
 # profiles list
@@ -72,10 +73,10 @@ delete_profile : "Delete a profile"
 verify_profiles : "Verify the profiles"
 # settings
 settings_title : "SETTINGS"
-reset_settings : "/!/ Reset /!/"
+reset_settings : "/!/ Full Reset /!/"
 change_minecraft_folder : "Change the .minecraft folder path"
 transfer_details : "Transfer details"
-change_language : "Change the language file"
+change_language : "Change the language file, current file"
 auto_update : "Auto update"
 
 # swapmods
@@ -139,6 +140,7 @@ forbidden_importing : " You can't import a folder with this name !"
 
 # profile renaming
 profile_to_rename : " Which profile do you want to rename : "
+new_profile_name : " How would you like to rename it : "
 profile_to_rename_not_existing : " This profile does not exist !"
 successful_renaming : " Successfully renamed %old_name% in %new_name%"
 
