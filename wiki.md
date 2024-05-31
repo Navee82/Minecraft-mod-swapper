@@ -29,6 +29,11 @@ Do the same for the .exe file.
 
 The directory of the language file does not really matter but i recommend putting it in the same directory as the other files.
 
+**If you are using the python file, you need the current dependencies :**
+- [Tkinter](https://docs.python.org/3/library/tkinter.html), install using ``pip install tk`` in a terminal.
+- [PyYaml](https://pypi.org/project/PyYAML/), install using ``pip install PyYAML`` in a terminal.
+- [Requests](https://pypi.org/project/requests/), install using ``pip install requests`` in a terminal.
+
 
 ## The program itself
 ### First startup
