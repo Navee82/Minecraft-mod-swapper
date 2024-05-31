@@ -7,6 +7,8 @@ This is my first python project, the code is probably horrible but hey, it works
 
 ## HOW TO USE THE MOD SWAPPER ?
 
+Check the [Wiki](https://github.com/Navee82/Minecraft-mod-swapper/blob/main/wiki.md) as well for more detailed informations !
+
 Your first need to have python 3.12, Tkinter, PyYaml and Requests installed.
 
 If you don't know how to install the libraries simply executes the following commands in a terminal :
@@ -32,9 +34,7 @@ I would love feedbacks on anything and if you have any questions, don't hesitate
 
 ## What is upcoming ?
 
-
-I'm currently working on making a "Help" menu, but i will probably make a full "wiki" on how to use it in **details** (in this file or another idk).
-I'm trying to make it the most user-friendly possible.
+The first release is coming, in an executable file.
 
 I also have making the UI and UX way better in mind. (but later, i don't have the skills for now.)
 
@@ -45,6 +45,7 @@ Any notable version will be reported in this section. Versions like hotfixes and
 
 | Status  | Version                                                                                                                | file type  | release date |
 |:-------:|:-------:                                                                                                               |:----------:|:------------:|
+| release | [1.1.2](https://github.com/Navee82/Minecraft-mod-swapper/blob/d8931bb4424a7edff3167c07185700368b48b6c1/mod_swapper.py) | python     | 05/31/24     |
 | release | [1.1.0](https://github.com/Navee82/Minecraft-mod-swapper/blob/83b8470a8eba4115e8251717e7831dd48fb93381/mod_swapper.py) | python     | 05/15/24     |
 | release | [1.0.5](https://github.com/Navee82/Minecraft-mod-swapper/blob/9611a3e36b55e464bea3b7b6289e2c7eb7766235/mod_swapper.py) | python     | 04/10/24     |
 | release | [1.0.4](https://github.com/Navee82/Minecraft-mod-swapper/blob/5fd6b10cde20f5b5aa147e3427ce58058c619071/mod_swapper.py) | python     | 03/28/24     |
