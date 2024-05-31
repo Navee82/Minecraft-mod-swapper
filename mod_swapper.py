@@ -1,15 +1,20 @@
-import os
-from tkinter import Tk, filedialog, messagebox
-import shutil
-import configparser
-import yaml
-import requests
+try:
+    import os
+    from tkinter import Tk, filedialog, messagebox
+    import shutil
+    import configparser
+    import yaml
+    import requests
+except Exception as e:
+    print("Couldn't import dependencies, error details :\n")
+    print(e)
+    input("")
+    exit()
 
-version = "1.1.1"
-supported_language_versions = ["1.1.0"]
-forbidden_names = ["0"]
+version = "1.1.2"
+supported_language_versions = ["1.1.2"]
+forbidden_names = ["0","CANCEL"]
 GITHUB = "https://github.com/Navee82/Minecraft-mod-swapper"
-RELEASE = False
 
 # Créer un objet ConfigParser
 config = configparser.ConfigParser()
@@ -31,10 +36,9 @@ def get_latest_version():
     
     if response.status_code == 200:
     # Trouver la version correspondante
-        if RELEASE == True:
-            version = response.text[(response.text.find("<release_version>")+17): (response.text.find("</release_version>"))]
-        else:
-            version = response.text[(response.text.find("<dev_version>")+13): (response.text.find("</dev_version>"))]
+
+        # version = response.text[(response.text.find("<release_version>")+17): (response.text.find("</release_version>"))]
+        version = response.text[(response.text.find("<dev_version>")+13): (response.text.find("</dev_version>"))]
 
         return version
     else:
@@ -70,6 +74,13 @@ def update_config(old_version):
             
         case "1.1.0":
             config["General"]["version"] = "1.1.1"
+        
+        case "1.1.1":
+            config["General"]["version"] = "1.1.2"
+
+        case _:
+            print(f" Update for the config not found, please contact the creator of this program on GitHub : {GITHUB}")
+            input("")
 
     with open('config.ini', "r+") as configfile:
         config.write(configfile)
@@ -113,7 +124,7 @@ def check_language():
         return False
     if LANGUAGE["language_version"] not in supported_language_versions:
         return False
-    if len(LANGUAGE.keys()) != 89:
+    if len(LANGUAGE.keys()) != 91:
         return False
     
     return True
@@ -209,7 +220,7 @@ def check_profiles(profiles):
 
     for name,path in profiles.items():
         print(path)
-        path = path.replace("\\","/")
+        path =  os.path.normcase(path)
         if not os.path.exists(path):
             if confirmation(titre=message("messagebox_title_error"),message=message("profile_not_existing",name,path)):
                 profiles_to_delete.append(name)
@@ -227,7 +238,7 @@ def create_profile(profiles,name):
             current_dir = os.getcwd()
             path = os.path.join(current_dir, name)
 
-            path = path.replace("\\", "/")
+            path =  os.path.normcase(path)
 
             os.mkdir(path)
             PROFILES[name] = path
@@ -257,7 +268,7 @@ def delete_profile(to_delete):
     current_dir = os.getcwd()
     path = os.path.join(current_dir, to_delete)
 
-    path = path.replace("\\", "/")
+    path =  os.path.normcase(path)
 
     shutil.rmtree(path)
 
@@ -270,7 +281,7 @@ def rename_profile(old_name,new_name):
     old_path = PROFILES[old_name]
     new_path = os.getcwd() + f"/{new_name}"
 
-    new_path = new_path.replace("\\", "/")
+    new_path =  os.path.normcase(new_path)
 
     os.rename(old_path,new_path)
 
@@ -356,7 +367,7 @@ def ui_show(ui):
             print(f" 1) {message("reset_settings")}")
             print(f" 2) {message("change_minecraft_folder")}")
             print(f" 3) {message("transfer_details")} : {TRANSFER_DETAIL}")
-            print(f" 4) {message("change_language")}")
+            print(f" 4) {message("change_language")} : {os.path.basename(language_path)}")
             print(f" 5) {message("auto_update")} : {auto_update}")
             print(f"\n 0) {message("back_to_main")}")
         
@@ -459,7 +470,7 @@ else:
 config.read('config.ini')
 
 # Auto config updater
-print(" Updating configs...")
+print(" Updating config...")
 while config_version() != version:
     config.read('config.ini')
     update_config(config_version())
@@ -593,7 +604,9 @@ while loop_main == True:
                 match user_input:
                     case "1":
                         # Création de profil
+                        print(message("option_cancel"))
                         profil_name = input(message("profile_naming"))
+
                         if profil_name in PROFILES:
                             print(message("profile_already_exists"))
                         elif profil_name in forbidden_names:
@@ -603,6 +616,7 @@ while loop_main == True:
                     
                     case "2":
                         # Importation de profil
+                        print(message("option_cancel"))
                         profile_path = openfolder(message("profile_importing"))
 
                         if os.path.basename(profile_path) in PROFILES:
@@ -616,23 +630,26 @@ while loop_main == True:
 
                     case "3":
                         # Renommer un profil
+                        print(message("option_cancel"))
                         to_rename = input(message("profile_to_rename"))
-                        new_name = input(" Comment souhaitez vous le renommer : ")
-
                         if to_rename not in PROFILES:
                             print(message("profile_to_rename_not_existing"))
-                        elif new_name in PROFILES:
-                            print(message("profile_already_exists"))
-                        elif new_name in forbidden_names:
-                            print(message("forbidden_naming"))
                         else:
-                            PROFILES = rename_profile(to_rename,new_name)
-                            print(message("successful_renaming",to_rename,new_name))
-                            if loaded_profile == to_rename:
-                                loaded_profile = new_name
+                            new_name = input(message("new_profile_name"))
+
+                            if new_name in PROFILES:
+                                print(message("profile_already_exists"))
+                            elif new_name in forbidden_names:
+                                print(message("forbidden_naming"))
+                            else:
+                                PROFILES = rename_profile(to_rename,new_name)
+                                print(message("successful_renaming",to_rename,new_name))
+                                if loaded_profile == to_rename:
+                                    loaded_profile = new_name
 
                     case "4":
                         # Suppression de profils
+                        print(message("option_cancel"))
                         to_delete = input(message("profile_to_delete"))
 
                         if to_delete not in PROFILES:
@@ -740,6 +757,7 @@ while loop_main == True:
         case "0":
             if confirmation(titre=message("messagebox_title_confirm"),message=message("quit_program")):
                 loop_main = False
+        
         case "debug":
             print(f"version= {version}")
             print(f"GAME_FOLDER_PATH= {GAME_FOLDER_PATH}")
@@ -751,6 +769,7 @@ while loop_main == True:
             print(f"auto_update= {auto_update}")
 
             print(f"\nProfiles dictionnary\n{PROFILES}")
+        
         case _:
             print(message("choose_existing_option"))
 
