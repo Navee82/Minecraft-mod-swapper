@@ -17,7 +17,8 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com).
 
 **Added**
 - 🟩 Added the possibility to cancel actions by typing "CANCEL".
-  
+- 🟩 Added a dependency check, to prevent the program to instantly close if something is missing
+
 **Changed**
 - 🟦 Changed the normalisation of path case, now using ``os.path.normcase()`` instead of ``path.replace("\\","/")``
 
