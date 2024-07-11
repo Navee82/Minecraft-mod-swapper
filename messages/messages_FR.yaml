@@ -8,7 +8,7 @@
 # û = \u00fb
 
 # Version du fichier de langue : 
-language_version : 1.1.2
+language_version : 1.1.3
 
 #  NE SURTOUT PAS MODIFIER LE CONTENU DU FICHIER SI VOUS NE SAVEZ PAS CE QUE VOUS FAITES !!!
 
@@ -21,75 +21,73 @@ language_version : 1.1.2
 ###############################################
 
 # check_connexion :
-checking_connexion : " V\u00e9rification de la connexion internet..."
+function.checking_connexion.main : " V\u00e9rification de la connexion internet..."
 
-#get_latest_version :
-checking_update : " Recherche d'une mise \u00e0 jour..."
+# get_latest_version :
+function.checking_update.main : " Recherche d'une mise \u00e0 jour..."
 
 # save_config :
-saved_config: " Config sauvegard\u00e9e !"
-saving_error_full : " Une erreur s'est produite lors de la sauvegarde des donn\u00e9es.\nSi le probl\u00e8me persiste veuillez contacter le cr\u00e9ateur de ce logiciel"
-saving_error : " Erreur lors de la sauvegarde :"
-unknown_category : "La cat\u00e9gorie %category% est inexistante"
-unknown_key : "La cl\u00e9 %key% est inexistante"
+function.save_config.saved_config: " Config sauvegard\u00e9e !"
+messagebox.message.function.save_config.saving_error : " Une erreur s'est produite lors de la sauvegarde des donn\u00e9es.\nSi le probl\u00e8me persiste veuillez contacter le cr\u00e9ateur de ce logiciel"
+function.save_config.saving_error : " Erreur lors de la sauvegarde :"
+messabegox.function.save_config.unknown_category : "La cat\u00e9gorie %category% est inexistante"
+messabegox.function.save_config.unknown_key : "La cl\u00e9 %key% est inexistante"
 
 # create_profile :
-creating_profile : " Cr\u00e9ation du profil..."
-created_profile : " Profil cr\u00e9\u00e9 !"
-creating_profile_error : " Erreur lors de la cr\u00e9ation du profil !"
-profile_already_exists : " Ce profil existe d\u00e9j\u00e0 !"
+function.create_profile.creating_profile : " Cr\u00e9ation du profil..."
+function.create_profile.created_profile : " Profil cr\u00e9\u00e9 !"
+function.create_profile.creating_profile_error : " Erreur lors de la cr\u00e9ation du profil !"
 
 # import_profile :
-importing_profile_error : " Erreur lors de l'importation du profil !"
-imported_profile : " Profil import\u00e9 !"
+function.import_profile.importing_profile_error : " Erreur lors de l'importation du profil !"
+function.import_profile.imported_profile : " Profil import\u00e9 !"
 
 # ask_game_folder :
-ask_game_folder_window_title : "Choisir votre dossier .minecraft"
+window_title.ask_game_folder : "Choisir votre dossier .minecraft"
 
 # ui_show :
 # main
-main_console_title : "CONSOLE PRINCIPALE"
-option_swap_profiles : "Changer les profils"
-option_manage_profiles : "G\u00e9rer les profils"
-option_settings : "Param\u00e8tres"
-option_save : "Sauvegarder"
-option_quit : "Quitter le programme"
-option_cancel : " Tapez CANCEL pour annuler l'action"
+function.ui_show.main.title : "CONSOLE PRINCIPALE"
+function.ui_show.main.swap_profiles : "Changer les profils"
+function.ui_show.main.manage_profiles : "G\u00e9rer les profils"
+function.ui_show.main.settings : "Param\u00e8tres"
+function.ui_show.main.save : "Sauvegarder"
+function.ui_show.main.quit : "Quitter le programme"
 
-back_to_main : "Retour \u00e0 la console principale"
+function.ui_show.global.back_to_main : "Retour \u00e0 la console principale"
 # profiles list
-profiles_list_title : "Liste des profils :"
-profile_list_subtitle : " Nom -> Chemin"
-no_existing_profiles : " Il n'y a actuellement aucun profil de cr\u00e9\u00e9."
-active_profile :  "Profil actif : %loaded_profile%"
+function.ui_show.profiles_list.title : "Liste des profils :"
+function.ui_show.profiles_list.subtitle : " Nom -> Chemin"
+function.ui_show.profiles_list.empty : " Il n'y a actuellement aucun profil de cr\u00e9\u00e9."
+function.ui_show.profiles_list.active :  "Profil actif : %loaded_profile%"
 # profiles swap
-profile_to_swap : " Quel profil souhaitez-vous activer ?"
-type_to_main : " Pour revenir \u00e0 la console principale tapez '0'"
+function.ui_show.profiles_swap.to_swap : " Quel profil souhaitez-vous activer ?"
+function.ui_show.profiles_swap.back_to_main : " Pour revenir \u00e0 la console principale tapez '0'"
 # profile gestion
-create_profile : "Cr\u00e9er un profil"
-import_profile : "Importer un profil"
-rename_profile : "Renommer un profil"
-delete_profile : "Supprimer un profil"
-verify_profiles : "V\u00e9rifier les profils"
+function.ui_show.profiles_gestion.create : "Cr\u00e9er un profil"
+function.ui_show.profiles_gestion.import : "Importer un profil"
+function.ui_show.profiles_gestion.rename : "Renommer un profil"
+function.ui_show.profiles_gestion.delete : "Supprimer un profil"
+function.ui_show.profiles_gestion.verify : "V\u00e9rifier les profils"
 # settings
-settings_title : "PARAMETRES"
-reset_settings : "/!/ R\u00e9initialisation Totale /!/"
-change_minecraft_folder : "Changer l'emplacement du dossier .minecraft"
-transfer_details : "D\u00e9tails du transfert"
-change_language : "Changer le fichier de langue, fichier actuel"
-auto_update : "Mise a jour automatique"
+function.ui_show.settings.title : "PARAMETRES"
+function.ui_show.settings.full_reset : "/!/ R\u00e9initialisation Totale /!/"
+function.ui_show.settings.change_mc_folder : "Changer l'emplacement du dossier .minecraft"
+function.ui_show.settings.transfer_details : "D\u00e9tails du transfert"
+function.ui_show.settings.change_language : "Changer le fichier de langue, fichier actuel"
+function.ui_show.settings.auto_update : "Mise a jour automatique"
 
 # swapmods
-transfered_mod_fancy : " MOD : %mod_id% transf\u00e9r\u00e9 avec succ\u00e8s."
-transfered_mod_light : " Transf\u00e9r\u00e9 %mods_number% mods avec succ\u00e8s !"
-ignored_folder : " Ignor\u00e9 le dossier %folder%."
-ignored_file : " Ignor\u00e9 le fichier %file_name%.%file_extension%."
-copy_error : " Erreur lors de la copie du contenu du dossier : %error%"
+function.swapmods.transfer.fancy : " MOD : %mod_id% transf\u00e9r\u00e9 avec succ\u00e8s."
+function.swapmods.transfer.light : " Transf\u00e9r\u00e9 %mods_number% mods avec succ\u00e8s !"
+function.swapmods.ignored.folder : " Ignor\u00e9 le dossier %folder%."
+function.swapmods.ignored.file : " Ignor\u00e9 le fichier %file_name%%file_extension%."
+function.swapmods.copy_error : " Erreur lors de la copie du contenu du dossier : %error%"
 
-swapping_mods_to_old : " Transfert du dossier mods dans le dossier %old_folder%..."
-swapping_new_to_mods : " Transfert du dossier %new% dans le dossier mods..."
-mods_folder_transfered : " Contenu du dossier mods transf\u00e9r\u00e9 avec succ\u00e8s !"
-new_folder_transfered : " Contenu du dossier %new% transf\u00e9r\u00e9 avec succ\u00e8s dans le dossier mods !"
+function.swapmods.swapping.old : " Transfert du dossier mods dans le dossier %old_folder%..."
+function.swapmods.swapping.mods : " Transfert du dossier %new% dans le dossier mods..."
+function.swapmods.transfered.mods : " Contenu du dossier mods transf\u00e9r\u00e9 avec succ\u00e8s !"
+function.swapmods.transfered.new : " Contenu du dossier %new% transf\u00e9r\u00e9 avec succ\u00e8s dans le dossier mods !"
 
 
 ################################################
@@ -100,18 +98,21 @@ new_folder_transfered : " Contenu du dossier %new% transf\u00e9r\u00e9 avec succ
 #|_|  |_|\__,_|_|_| |_|  \____\___/ \__,_|\___|#
 ################################################
 
+# Global
+global.profile_already_exists : " Ce profil existe d\u00e9j\u00e0 !"
+global.cancel : " Tapez CANCEL pour annuler l'action"
 
 # messagebox
-messagebox_title_error : "Erreur"
-messagebox_title_info : "Info"
-messagebox_title_confirm : "Confirmation"
+messagebox.title.error : "Erreur"
+messagebox.title.info : "Info"
+messagebox.title.confirm : "Confirmation"
 
-retrieving_data_error : "Erreur lors de la r\u00e9cup\u00e9ration des donn\u00e9es de %error%"
-downloaded_latest : "La derni\u00e8re version du programme a \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9e avec succ\u00e8s !!\nLe programme va red\u00e9marrer"
+messagebox.message.retrieving_data_error : "Erreur lors de la r\u00e9cup\u00e9ration des donn\u00e9es de %error%"
+messagebox.messge.dowload_latest : "La derni\u00e8re version du programme a \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9e avec succ\u00e8s !!\nLe programme va red\u00e9marrer"
 
 # auto update
-up_to_date : " Vous avez la derni\u00e8re version du programme !"
-downloading_latest : " T\u00e9l\u00e9chargement de la derni\u00e8re version du mod swapper..."
+auto_update.up_to_date : " Vous avez la derni\u00e8re version du programme !"
+function.download_latest.main : " T\u00e9l\u00e9chargement de la derni\u00e8re version du mod swapper..."
 
 # config verifying
 minecraft_folder_not_defined : " Il semblerait que vous n'ayez pas encore d\u00e9fini votre emplacement de dossier .minecraft"
@@ -122,53 +123,52 @@ select_minecraft_folder : "Veuillez choisir votre dossier  .minecraft"
 choose_existing_option : " Veuillez choisir une option existante."
 
 # PROFILE SWAP
-profile_swap_title : "\u00c9CHANGE DES PROFILS"
-profile_to_swap_not_existing : " Le profil que vous souhaitez activer n'existe pas !"
-profile_already_active : " Le profil est d\u00e9ja actif !"
+profile_swap.title : "\u00c9CHANGE DES PROFILS"
+profile_swap.not_existing : " Le profil que vous souhaitez activer n'existe pas !"
+profile_swap.already_active : " Le profil est d\u00e9ja actif !"
 
 # PROFILE GESTION
-profiles_gestion_title : "GESTION DES PROFILS"
-forbidden_naming : " Vous ne pouvez pas appeler votre profil comme cela !"
-profile_already_exists : " Ce profil existe d\u00e9j\u00e0"
+profiles_gestion.title : "GESTION DES PROFILS"
+profiles_gestion.wrong_name : " Vous ne pouvez pas appeler votre profil comme cela !"
 
 # profile creation
-profile_naming : " Comment voulez-vous appeller votre profil : "
+profile_creation.naming : " Comment voulez-vous appeller votre profil : "
 
 # profile importation
-profile_importing : " Choisissez le dossier \u00e0 importer"
-forbidden_importing : " Vous ne pouvez pas importer un dossier avec ce nom !"
+profile_import.select : " Choisissez le dossier \u00e0 importer"
+profile_import.wrong_name : " Vous ne pouvez pas importer un dossier avec ce nom !"
 
 # profile renaming
-profile_to_rename : " Quel profil souhaitez vous renommer : "
-new_profile_name : " Comment souhaitez vous le renommer : "
-profile_to_rename_not_existing : " Le profil que vous souhaitez renommer n'existe pas !"
-successful_renaming : " Le profil %old_name% a bien \u00e9t\u00e9 renomm\u00e9 en %new_name%"
+profile_rename.select : " Quel profil souhaitez vous renommer : "
+profile_rename.new_name : " Comment souhaitez vous le renommer : "
+profile_rename.not_existing : " Le profil que vous souhaitez renommer n'existe pas !"
+profile_rename.successful : " Le profil %old_name% a bien \u00e9t\u00e9 renomm\u00e9 en %new_name%"
 
 # profile deletion
-profile_to_delete : " Quel profil souhaitez-vous supprimer : "
-profile_to_delete_not_existing : " Le profil que vous souhaitez supprimer n'existe pas."
-profile_to_delete_active : " Vous ne pouvez pas supprimer le profil actif !"
-profile_deleted : " Le profil %profil_name% a bien \u00e9t\u00e9 supprim\u00e9 !"
+profile_deletion.select : " Quel profil souhaitez-vous supprimer : "
+profile_deletion.not_existing : " Le profil que vous souhaitez supprimer n'existe pas."
+profile_deletion.active : " Vous ne pouvez pas supprimer le profil actif !"
+profile_deletion.successful : " Le profil %profil_name% a bien \u00e9t\u00e9 supprim\u00e9 !"
 
 # profile checking
-checking_profiles : "\n V\u00e9rification des profils..."
-profile_not_existing : "Il semble que le profil %name% -> %path% n'existe pas sur votre ordinateur.\nVoulez-vous le supprimer de la liste des profils ?"
-checked_profiles : " Profils v\u00e9rifi\u00e9s !"
+profile_checking.checking : "\n V\u00e9rification des profils..."
+profile_checking.not_existing : "Il semble que le profil %name% -> %path% n'existe pas sur votre ordinateur.\nVoulez-vous le supprimer de la liste des profils ?"
+profile_checking.checked : " Profils v\u00e9rifi\u00e9s !"
 
 # SETTINGS
-messagebox_message_reset : "\u00cates vous s\u00fbr de vouloir r\u00e9initialiser le programme, cela signifie la suppression de tous vos profils, de leur contenu et du fichier de configuration."
+messagebox.message.full_reset : "\u00cates vous s\u00fbr de vouloir r\u00e9initialiser le programme, cela signifie la suppression de tous vos profils, de leur contenu et du fichier de configuration."
 
-messagebox_title_details : "D\u00e9tails lors du changement des mods."
-messagebox_message_details : "Voulez-vous l'affichage d\u00e9taill\u00e9 lors du transfer des mods ?"
+messagebox.title.transfer_details : "D\u00e9tails lors du changement des mods."
+messagebox.message.transfer_details : "Voulez-vous l'affichage d\u00e9taill\u00e9 lors du transfer des mods ?"
 
-messagebox_title_update : "Mise \u00e0 jour automatique."
-messagebox_message_update : "Voulez-vous activer les mises \u00e0 jour automatiques du programme ?"
+messagebox.title.auto_update : "Mise \u00e0 jour automatique."
+messagebox.message.auto_update : "Voulez-vous activer les mises \u00e0 jour automatiques du programme ?"
 
-messagebox_title_switch_language : "Changement de langue"
-messagebox_message_switch_language : "Voulez-vous changer votre fichier de langue ?"
-new_language_file : "S\u00e9lectionnez le nouveau fichier de langue"
-uncorrect_language_file : "Votre fichier de langue n'est pas correct (probablement pas \u00e0 jour), veuillez en t\u00e9l\u00e9charger un correct sur la page GitHub :\n%github%"
-imported_new_language : " Le nouveau fichier de langue a été importé avec succès !"
+messagebox.title.change_language : "Changement de langue"
+messagebox.message.change_language : "Voulez-vous changer votre fichier de langue ?"
+settings.language.select_new : "S\u00e9lectionnez le nouveau fichier de langue"
+settings.language.uncorrect : "Votre fichier de langue n'est pas correct (probablement pas \u00e0 jour), veuillez en t\u00e9l\u00e9charger un correct sur la page GitHub :\n%github%"
+settings.language.imported : " Le nouveau fichier de langue a été importé avec succès !"
 
 # SAVING PROGRAM
 saving_program : " Sauvegarde du programme..."

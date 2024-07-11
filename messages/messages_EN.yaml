@@ -8,7 +8,7 @@
 # û = \u00fb
 
 # Version of the language file : 
-language_version : 1.1.2
+language_version : 1.1.3
 
 #  DO NOT MODIFY THIS FILE IF YOU DO NOT KNOW WHAT YOU ARE DOING
 
@@ -21,75 +21,73 @@ language_version : 1.1.2
 ###############################################
 
 # check_connexion :
-checking_connexion : " Checking internet connexion..."
+function.checking_connexion.main : " Checking internet connexion..."
 
-#get_latest_version :
-checking_update : " Searching for update..."
+# get_latest_version :
+function.checking_update.main : " Searching for update..."
 
 # save_config :
-saved_config: " Saved config !"
-saving_error_full : " An error occurred while saving the data.\nIf the problem persists, please contact the creator of this software"
-saving_error : " Erreur lors de la sauvegarde :"
-unknown_category : "The category %category% does not exist"
-unknown_key : "The key %key% does not exist"
+function.save_config.saved_config: " Saved config !"
+messagebox.message.function.save_config.saving_error : " An error occurred while saving the data.\nIf the problem persists, please contact the creator of this software"
+function.save_config.saving_error : " Error while saving :"
+messabegox.function.save_config.unknown_category : "The category %category% does not exist"
+messabegox.function.save_config.unknown_key : "The key %key% does not exist"
 
 # create_profile :
-creating_profile : " Creating profile..."
-created_profile : " Created profile !"
-creating_profile_error : " An issue occurred while creating profile !"
-profile_already_exists : " This profile already exists !"
+function.create_profile.creating_profile : " Creating profile..."
+function.create_profile.created_profile : " Created profile !"
+function.create_profile.creating_profile_error : " An issue occurred while creating profile !"
 
 # import_profile :
-importing_profile_error : " An error has occured while importing the profile !"
-imported_profile : " Succesuffully imported profile !"
+function.import_profile.importing_profile_error : " An error has occured while importing the profile !"
+function.import_profile.imported_profile : " Succesuffully imported profile !"
 
 # ask_game_folder :
-ask_game_folder_window_title : "Choose your .minecraft folder"
+window_title.ask_game_folder : "Choose your .minecraft folder"
 
 # ui_show :
 # main
-main_console_title : "MAIN CONSOLE"
-option_swap_profiles : "Swap profiles"
-option_manage_profiles : "Manage profiles"
-option_settings : "Settings"
-option_save : "Save"
-option_quit : "Quit the program"
-option_cancel : " Type CANCEL to cancel the action"
+function.ui_show.main.title : "MAIN CONSOLE"
+function.ui_show.main.swap_profiles : "Swap profiles"
+function.ui_show.main.manage_profiles : "Manage profiles"
+function.ui_show.main.settings : "Settings"
+function.ui_show.main.save : "Save"
+function.ui_show.main.quit : "Quit the program"
 
-back_to_main : "Go back to the main console"
+function.ui_show.global.back_to_main : "Go back to the main console"
 # profiles list
-profiles_list_title : "Profiles list :"
-profile_list_subtitle : " Name -> Path"
-no_existing_profiles : " No profiles have been created yet."
-active_profile :  " Active profile : %loaded_profile%"
+function.ui_show.profiles_list.title : "Profiles list :"
+function.ui_show.profiles_list.subtitle : " Name -> Path"
+function.ui_show.profiles_list.empty : " No profiles have been created yet."
+function.ui_show.profiles_list.active :  " Active profile : %loaded_profile%"
 # profiles swap
-profile_to_swap : " Which profile do you want to activate ?"
-type_to_main : " To go back to the main console, type '0'"
+function.ui_show.profiles_swap.to_swap : " Which profile do you want to activate ?"
+function.ui_show.profiles_swap.back_to_main : " To go back to the main console, type '0'"
 # profile gestion
-create_profile : "Create a profile"
-import_profile : "Import a profile"
-rename_profile : "Rename a profile"
-delete_profile : "Delete a profile"
-verify_profiles : "Verify the profiles"
+function.ui_show.profiles_gestion.create : "Create a profile"
+function.ui_show.profiles_gestion.import : "Import a profile"
+function.ui_show.profiles_gestion.rename : "Rename a profile"
+function.ui_show.profiles_gestion.delete : "Delete a profile"
+function.ui_show.profiles_gestion.verify : "Verify the profiles"
 # settings
-settings_title : "SETTINGS"
-reset_settings : "/!/ Full Reset /!/"
-change_minecraft_folder : "Change the .minecraft folder path"
-transfer_details : "Transfer details"
-change_language : "Change the language file, current file"
-auto_update : "Auto update"
+function.ui_show.settings.title : "SETTINGS"
+function.ui_show.settings.full_reset : "/!/ Full Reset /!/"
+function.ui_show.settings.change_mc_folder : "Change the .minecraft folder path"
+function.ui_show.settings.transfer_details : "Transfer details"
+function.ui_show.settings.change_language : "Change the language file, current file"
+function.ui_show.settings.auto_update : "Auto update"
 
 # swapmods
-transfered_mod_fancy : " MOD : %mod_id% successfully transfered."
-transfered_mod_light : " Transfered %mods_number% mods with success !"
-ignored_folder : " Ignored the folder : %folder%."
-ignored_file : " Ignored the file %file_name%.%file_extension%."
-copy_error : " Error while copying folder contents : %error%."
+function.swapmods.transfer.fancy : " MOD : %mod_id% successfully transfered."
+function.swapmods.transfer.light : " Transfered %mods_number% mods with success !"
+function.swapmods.ignored.folder : " Ignored the folder : %folder%."
+function.swapmods.ignored.file : " Ignored the file %file_name%%file_extension%."
+function.swapmods.copy_error : " Error while copying folder contents : %error%."
 
-swapping_mods_to_old : " Transfering mods folder to %old_folder% folder..."
-swapping_new_to_mods : " Transfering the %new% folder to the mods folder..."
-mods_folder_transfered : " Mods folder content successfully transferred !"
-new_folder_transfered : " %new% folder content successfully transferred to the mods folder !"
+function.swapmods.swapping.old : " Transfering mods folder to %old_folder% folder..."
+function.swapmods.swapping.mods : " Transfering the %new% folder to the mods folder..."
+function.swapmods.transfered.mods : " Mods folder content successfully transferred !"
+function.swapmods.transfered.new : " %new% folder content successfully transferred to the mods folder !"
 
 
 ################################################
@@ -100,18 +98,21 @@ new_folder_transfered : " %new% folder content successfully transferred to the m
 #|_|  |_|\__,_|_|_| |_|  \____\___/ \__,_|\___|#
 ################################################
 
+# Global
+global.profile_already_exists : " This profile already exists !"
+global.cancel : " Type CANCEL to cancel the action"
 
 # messagebox
-messagebox_title_error : "Error"
-messagebox_title_info : "Info"
-messagebox_title_confirm : "Confirmation"
+messagebox.title.error : "Error"
+messagebox.title.info : "Info"
+messagebox.title.confirm : "Confirmation"
 
-retrieving_data_error : "An error occured while retriving the data of %error%"
-downloaded_latest : "The latest version of the program has successfully been downloaded !\nThe program will restart."
+messagebox.message.retrieving_data_error : "An error occured while retriving the data of %error%"
+messagebox.messge.dowload_latest : "The latest version of the program has successfully been downloaded !\nThe program will restart."
 
 # auto update
-up_to_date : " Vous avez la derni\u00e8re version du programme !"
-downloading_latest : " T\u00e9l\u00e9chargement de la derni\u00e8re version du mod swapper..."
+auto_update.up_to_date : " You have the latest version of the program !"
+function.download_latest.main : " Downloading the latest version of the mod swapper..."
 
 # config verifying
 minecraft_folder_not_defined : " It seems like you didn't set your .minecraft folder path yet"
@@ -122,53 +123,52 @@ select_minecraft_folder : "Choose your .minecraft folder"
 choose_existing_option : " Please choose an existing option"
 
 # PROFILE SWAP
-profile_swap_title : "PROFILES SWAPPING"
-profile_to_swap_not_existing : " This profile don't exists !"
-profile_already_active : " This profile is already active !"
+profile_swap.title : "PROFILES SWAPPING"
+profile_swap.not_existing : " This profile don't exists !"
+profile_swap.already_active : " This profile is already active !"
 
 # PROFILE GESTION
-profiles_gestion_title : "PROFILES GESTION"
-forbidden_naming : " You can't name a profile like that !"
-profile_already_exists : " This profile already exists"
+profiles_gestion.title : "PROFILES GESTION"
+profiles_gestion.wrong_name : " You can't name a profile like that !"
 
 # profile creation
-profile_naming : " How would you like to name your profile : "
+profile_creation.naming : " How would you like to name your profile : "
 
 # profile importation
-profile_importing : " Choose the folder to import"
-forbidden_importing : " You can't import a folder with this name !"
+profile_import.select : " Choose the folder to import"
+profile_import.wrong_name : " You can't import a folder with this name !"
 
 # profile renaming
-profile_to_rename : " Which profile do you want to rename : "
-new_profile_name : " How would you like to rename it : "
-profile_to_rename_not_existing : " This profile does not exist !"
-successful_renaming : " Successfully renamed %old_name% in %new_name%"
+profile_rename.select : " Which profile do you want to rename : "
+profile_rename.new_name : " How would you like to rename it : "
+profile_rename.not_existing : " This profile does not exist !"
+profile_rename.successful : " Successfully renamed %old_name% in %new_name%"
 
 # profile deletion
-profile_to_delete : " Which profile do you want to delete : "
-profile_to_delete_not_existing : " The profile you want to delete don't exists"
-profile_to_delete_active : " You can't delete the active profile"
-profile_deleted : " Successfully deleted the profile %profil_name% !"
+profile_deletion.select : " Which profile do you want to delete : "
+profile_deletion.not_existing : " The profile you want to delete don't exists"
+profile_deletion.active : " You can't delete the active profile"
+profile_deletion.successful : " Successfully deleted the profile %profil_name% !"
 
 # profile checking
-checking_profiles : "\n Checking profiles..."
-profile_not_existing : "It seems that the profile %name% -> %path% does not exist on your computer.\nDo you want to delete it from the profile list ?"
-checked_profiles : " Profiles checked !"
+profile_checking.checking : "\n Checking profiles..."
+profile_checking.not_existing : "It seems that the profile %name% -> %path% does not exist on your computer.\nDo you want to delete it from the profile list ?"
+profile_checking.checked : " Profiles checked !"
 
 # SETTINGS
-messagebox_message_reset : "Are you sure you want to reset the program, this means deleting all your profiles, their contents and the configuration file."
+messagebox.message.full_reset : "Are you sure you want to reset the program, this means deleting all your profiles, their contents and the configuration file."
 
-messagebox_title_details : "Change the details displayed when swapping mods."
-messagebox_message_details : "Do you want the detailed display when transferring mods ?"
+messagebox.title.transfer_details : "Change the details displayed when swapping mods."
+messagebox.message.transfer_details : "Do you want the detailed display when transferring mods ?"
 
-messagebox_title_update : "Auto update."
-messagebox_message_update : "Do you want to activate the auto update of the program ?"
+messagebox.title.auto_update : "Auto update."
+messagebox.message.auto_update : "Do you want to activate the auto update of the program ?"
 
-messagebox_title_switch_language : "Switch language"
-messagebox_message_switch_language : "Do you want to change your language file ?"
-new_language_file : "Select a new language file"
-uncorrect_language_file : "Your language file is uncorrect (probably not up to date), please download a corect one on the GitHub page :\n%github%"
-imported_new_language : " Successfully imported the new langage file !"
+messagebox.title.change_language : "Switch language"
+messagebox.message.change_language : "Do you want to change your language file ?"
+settings.language.select_new : "Select a new language file"
+settings.language.uncorrect : "Your language file is uncorrect (probably not up to date), please download a corect one on the GitHub page :\n%github%"
+settings.language.imported : " Successfully imported the new langage file !"
 
 # SAVING PROGRAM
 saving_program : " Saving program..."
