@@ -11,6 +11,17 @@ The format is inspired from [Keep a Changelog](https://keepachangelog.com).
 🟧 stands for work in progress<br>
 
 
+## [v1.1.3] - 07/11/24
+
+### **General**
+
+**Changed**
+- 🟦 reworked the entire messages id to make them more readable, coherent and simpler to read in the code.
+
+**Fixed**
+- 🟪 Fixed 2 non translated messages.
+<br>
+
 ## [v1.1.2] - 05/31/24
 
 ### **General**
