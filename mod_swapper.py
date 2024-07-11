@@ -78,6 +78,9 @@ def update_config(old_version):
         case "1.1.1":
             config["General"]["version"] = "1.1.2"
 
+        case "1.1.2":
+            config["General"]["version"] = "1.1.3"
+
         case _:
             print(f" Update for the config not found, please contact the creator of this program on GitHub : {GITHUB}")
             input("")
