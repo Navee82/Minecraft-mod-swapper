@@ -45,6 +45,7 @@ Any notable version will be reported in this section. Versions like hotfixes and
 
 | Status  | Version                                                                                                                | file type  | release date |
 |:-------:|:-------:                                                                                                               |:----------:|:------------:|
+| release | [1.1.3](https://github.com/Navee82/Minecraft-mod-swapper/blob/39bebde124bbf80e1c10a2bbbbe26b50e8465e9e/mod_swapper.py) | python     | 07/11/24     |
 | release | [1.1.2](https://github.com/Navee82/Minecraft-mod-swapper/blob/d8931bb4424a7edff3167c07185700368b48b6c1/mod_swapper.py) | python     | 05/31/24     |
 | release | [1.1.0](https://github.com/Navee82/Minecraft-mod-swapper/blob/83b8470a8eba4115e8251717e7831dd48fb93381/mod_swapper.py) | python     | 05/15/24     |
 | release | [1.0.5](https://github.com/Navee82/Minecraft-mod-swapper/blob/9611a3e36b55e464bea3b7b6289e2c7eb7766235/mod_swapper.py) | python     | 04/10/24     |
