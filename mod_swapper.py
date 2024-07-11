@@ -11,8 +11,8 @@ except Exception as e:
     input("")
     exit()
 
-version = "1.1.2"
-supported_language_versions = ["1.1.2"]
+version = "1.1.3"
+supported_language_versions = ["1.1.3"]
 forbidden_names = ["0","CANCEL"]
 GITHUB = "https://github.com/Navee82/Minecraft-mod-swapper"
 
@@ -20,7 +20,7 @@ GITHUB = "https://github.com/Navee82/Minecraft-mod-swapper"
 config = configparser.ConfigParser()
 
 def check_connexion():
-    print(message("checking_connexion"))
+    print(message("function.checking_connexion.main"))
     try:
         requests.get("https://google.com")
         return True
@@ -28,7 +28,7 @@ def check_connexion():
         return False
 
 def get_latest_version():
-    print(message("checking_update"))
+    print(message("function.checking_update.main"))
     try:
         response = requests.get("https://navee82.github.io/modswapper-website/versions.html")
     except Exception as e :
@@ -46,13 +46,13 @@ def get_latest_version():
         print(f"Error : {response.status_code}")
 
 def download_latest():
-    print(message("downloading_latest"))
+    print(message("function.download_latest.main"))
     response = requests.get("https://raw.githubusercontent.com/Navee82/Minecraft-mod-swapper/main/mod_swapper.py")
     if response.status_code == 200:
     # Afficher le contenu de la page Web
         with open("mod_swapper.py", "wb") as file:
                 file.write(response.content)
-        messagebox.showinfo(title=message("messagebox_title_info"), message= message("downloaded_latest"))
+        messagebox.showinfo(title=message("messagebox.title.info"), message= message("messagebox.messge.dowload_latest"))
         os.system("mod_swapper.py")
     else:
         # Afficher un message d'erreur si la requête a échoué
@@ -164,7 +164,7 @@ def save_config(param):
         for category, key, value in param:
 
             if not category in config:
-                messagebox.showerror(title=message("messagebox_title_error"), message=message("unknown_category",category), icon="error", type="ok")
+                messagebox.showerror(title=message("messagebox.title.error"), message=message("messabegox.function.save_config.unknown_category",category), icon="error", type="ok")
             else:
                 if key in config[category]:
                     config[category][key] = value
@@ -173,7 +173,7 @@ def save_config(param):
                     if category == "Profiles":
                         config[category][key] = value
                     else:
-                        messagebox.showerror(title=message("messagebox_title_error"), message=message("unknown_key",key), icon="error", type="ok")
+                        messagebox.showerror(title=message("messagebox.title.error"), message=message("messabegox.function.save_config.unknown_key",key), icon="error", type="ok")
         
         # Écriture du fichier pour les données à ajouter
         with open('config.ini', "r+") as configfile:
@@ -187,11 +187,11 @@ def save_config(param):
         with open('config.ini', "w") as configfile:
             config.write(configfile)
 
-        print(message("saved_config"))
+        print(message("function.save_config.saved_config"))
 
     except Exception as e :
-        messagebox.showerror(title=message("messagebox_title_error"), message=message("saving_error_full"), icon="error", type="ok")
-        print(message("saving_error"))
+        messagebox.showerror(title=message("messagebox.title.error"), message=message("messagebox.message.function.save_config.saving_error"), icon="error", type="ok")
+        print(message("function.save_config.saving_error"))
         print(e)
 
 
@@ -222,7 +222,7 @@ def check_profiles(profiles):
         print(path)
         path =  os.path.normcase(path)
         if not os.path.exists(path):
-            if confirmation(titre=message("messagebox_title_error"),message=message("profile_not_existing",name,path)):
+            if confirmation(titre=message("messagebox.title.error"),message=message("profile_checking.not_existing",name,path)):
                 profiles_to_delete.append(name)
 
     for name in profiles_to_delete:
@@ -232,7 +232,7 @@ def check_profiles(profiles):
 
 
 def create_profile(profiles,name):
-    print(message("creating_profile"))
+    print(message("function.create_profile.creating_profile"))
     if not name in profiles:
         try:
             current_dir = os.getcwd()
@@ -243,25 +243,25 @@ def create_profile(profiles,name):
             os.mkdir(path)
             PROFILES[name] = path
 
-            print(message("created_profile"))
+            print(message("function.create_profile.created_profile"))
             return PROFILES
         
         except Exception as e:
-            print(message("creating_profile_error"))
+            print(message("function.create_profile.creating_profile_error"))
             print(e)
 
     else:
-        print(message("profile_already_exists"))
+        print(message("global.profile_already_exists"))
 
 def import_profile(path):
     try:
         name = os.path.basename(path)
         PROFILES[name] = path
-        print(message("imported_profile"))
+        print(message("function.import_profile.imported_profile"))
         return PROFILES
     
     except Exception as e:
-        print(message("importing_profile_error"))
+        print(message("function.import_profile.importing_profile_error"))
         print(e)
 
 def delete_profile(to_delete):
@@ -312,7 +312,7 @@ def openfile(window_title):
 
 
 def ask_game_folder():
-    game_folder = openfolder(message("ask_game_folder_window_title"))
+    game_folder = openfolder(message("window_title.ask_game_folder"))
     return game_folder
 
 def confirmation(titre,message):
@@ -331,45 +331,45 @@ def ui_show(ui):
     match ui:
         
         case "main" :
-            print(f"\n   {message("main_console_title")}\n")
-            print(f" 1) {message("option_swap_profiles")}")
-            print(f" 2) {message("option_manage_profiles")}")
-            print(f" 3) {message("option_settings")}")
-            print(f" 4) {message("option_save")}")
-            print(f" 0) {message("option_quit")}")
+            print(f"\n   {message("function.ui_show.main.title")}\n")
+            print(f" 1) {message("function.ui_show.main.swap_profiles")}")
+            print(f" 2) {message("function.ui_show.main.manage_profiles")}")
+            print(f" 3) {message("function.ui_show.main.settings")}")
+            print(f" 4) {message("function.ui_show.main.save")}")
+            print(f" 0) {message("function.ui_show.main.quit")}")
 
         case "profiles":
-            print(f"\n {message("profiles_list_title")}")
-            print(f"{message("profile_list_subtitle")}\n")
+            print(f"\n {message("function.ui_show.profiles_list.title")}")
+            print(f"{message("function.ui_show.profiles_list.subtitle")}\n")
             if len(PROFILES) == 0:
-                print(message("no_existing_profiles"))
+                print(message("function.ui_show.profiles_list.empty"))
             else:
                 for name, path in PROFILES.items():
                     print(f" {name} -> {path}")
-            print(f"\n {message("active_profile", loaded_profile)}")
+            print(f"\n {message("function.ui_show.profiles_list.active", loaded_profile)}")
             print("\n ----------------------------------\n")
         
         case "profils_swap":
-            print(message("profile_to_swap"))
-            print(message("type_to_main"))
+            print(message("function.ui_show.profiles_swap.to_swap"))
+            print(message("function.ui_show.profiles_swap.back_to_main"))
 
         case "profils_gestion":
             
-            print(f" 1) {message("create_profile")}")
-            print(f" 2) {message("import_profile")}")
-            print(f" 3) {message("rename_profile")}")
-            print(f" 4) {message("delete_profile")}")
-            print(f" 5) {message("verify_profiles")}")
-            print(f"\n 0) {message("back_to_main")}")
+            print(f" 1) {message("function.ui_show.profiles_gestion.create")}")
+            print(f" 2) {message("function.ui_show.profiles_gestion.import")}")
+            print(f" 3) {message("function.ui_show.profiles_gestion.rename")}")
+            print(f" 4) {message("function.ui_show.profiles_gestion.delete")}")
+            print(f" 5) {message("function.ui_show.profiles_gestion.verify")}")
+            print(f"\n 0) {message("function.ui_show.global.back_to_main")}")
         
         case "settings":
-            print(f"\n       {message("settings_title")}\n")
-            print(f" 1) {message("reset_settings")}")
-            print(f" 2) {message("change_minecraft_folder")}")
-            print(f" 3) {message("transfer_details")} : {TRANSFER_DETAIL}")
-            print(f" 4) {message("change_language")} : {os.path.basename(language_path)}")
-            print(f" 5) {message("auto_update")} : {auto_update}")
-            print(f"\n 0) {message("back_to_main")}")
+            print(f"\n       {message("function.ui_show.settings.title")}\n")
+            print(f" 1) {message("function.ui_show.settings.full_reset")}")
+            print(f" 2) {message("function.ui_show.settings.change_mc_folder")}")
+            print(f" 3) {message("function.ui_show.settings.transfer_details")} : {TRANSFER_DETAIL}")
+            print(f" 4) {message("function.ui_show.settings.change_language")} : {os.path.basename(language_path)}")
+            print(f" 5) {message("function.ui_show.settings.auto_update")} : {auto_update}")
+            print(f"\n 0) {message("function.ui_show.global.back_to_main")}")
         
 
 
@@ -381,14 +381,14 @@ def swapmods(old,new,folder):
         - Transfère les mods du nouveau profil vers le dossier "mods"
 
     Entrée : "old" et "new" deux variables contenant les chemins respectifs des dossiers des profils
-            "folder" le chemin du dossier "mods
+            "folder" le chemin du dossier "mods"
     '''
 
     if not old == "None":
         transfered_mods = 0
         try:
             # Copie de chaque fichier du dossier mods dans le dossier du profil actuel
-            print(f"\n{message("swapping_mods_to_old",old)}")
+            print(f"\n{message("function.swapmods.swapping.old",old)}")
             for contenu in os.listdir(folder):
                 new_path = os.path.join(old, contenu)
                 file_path = os.path.join(folder, contenu)
@@ -400,27 +400,27 @@ def swapmods(old,new,folder):
                         shutil.copy(file_path, new_path)
 
                         if TRANSFER_DETAIL:
-                            print(f"{message("transfered_mod_fancy",contenu,extension)}")
+                            print(f"{message("function.swapmods.transfer.fancy",contenu,extension)}")
                         transfered_mods += 1
 
                         os.remove(file_path)
                     else:
-                        print(f"{message("ignored_file",file_name)}")
+                        print(f"{message("function.swapmods.ignored.file",file_name,extension)}")
                 elif os.path.isdir(file_path):
-                    print(f"{message("ignored_folder",contenu)}")
+                    print(f"{message("function.swapmods.ignored.folder",contenu)}")
 
             if TRANSFER_DETAIL:
-                print(f"{message("mods_folder_transfered")}")
+                print(f"{message("function.swapmods.transfered.mods")}")
             else:
-                print(f"{message("transfered_mod_light",transfered_mods)}")
+                print(f"{message("function.swapmods.transfer.light",transfered_mods)}")
 
         except Exception as e:
-            print(f"{message("copy_error",e)}")
+            print(f"{message("function.swapmods.copy_error",e)}")
 
     transfered_mods = 0
     try:
         # Copie de chaque fichier du dossier du nouveau profil dans le dossier mods
-        print(f"\n{message("swapping_new_to_mods",new)}")
+        print(f"\n{message("function.swapmods.swapping.mods",new)}")
         for contenu in os.listdir(new):
             new_path = os.path.join(folder, contenu)
             file_path = os.path.join(new, contenu)
@@ -432,22 +432,22 @@ def swapmods(old,new,folder):
                     shutil.copy(file_path, new_path)
 
                     if TRANSFER_DETAIL:
-                        print(f"{message("transfered_mod_fancy",contenu)}")
+                        print(f"{message("function.swapmods.transfer.fancy",contenu)}")
                     transfered_mods += 1
 
                     os.remove(file_path)
                 else:
-                    print(f"{message("ignored_file",file_name)}")
+                    print(f"{message("function.swapmods.ignored.file",file_name,extension)}")
             elif os.path.isdir(file_path):
-                print(f"{message("ignored_folder",contenu)}")
+                print(f"{message("function.swapmods.ignored.folder",contenu)}")
 
         if TRANSFER_DETAIL:
-            print(f"{message("new_folder_transfered",new)}")
+            print(f"{message("function.swapmods.transfered.new",new)}")
         else:
-            print(f"{message("transfered_mod_light",transfered_mods)}")
+            print(f"{message("function.swapmods.transfer.light",transfered_mods)}")
 
     except Exception as e:
-        print(f"{message("copy_error",e)}")
+        print(f"{message("function.swapmods.copy_error",e)}")
 
 
 ################################################
@@ -515,7 +515,7 @@ try :
 
     PROFILES = {name: path for name, path in config["Profiles"].items()}
 except Exception as e:
-    messagebox.showerror(title=message("messagebox_title_error"), message=message("retrieving_data_error",e), icon="error", type="ok")
+    messagebox.showerror(title=message("messagebox.title.error"), message=message("messagebox.message.retrieving_data_error",e), icon="error", type="ok")
     
 # Auto updater
 if auto_update:
@@ -523,18 +523,18 @@ if auto_update:
         if get_latest_version() != version:
             download_latest()
         else:
-            print(message("up_to_date"))
+            print(message("auto_update.up_to_date"))
     else:
         print(message("no_internet"))
 
 # Check des valeurs de la config
 if GAME_FOLDER_PATH == "None":
     print(message("minecraft_folder_not_defined"))
-    messagebox.showinfo(title=message("messagebox_title_info"),message=message("select_minecraft_folder"),type="ok")
+    messagebox.showinfo(title=message("messagebox.title.info"),message=message("select_minecraft_folder"),type="ok")
     GAME_FOLDER_PATH = ask_game_folder()
 
 while not os.path.exists(GAME_FOLDER_PATH+"/mods"):
-    messagebox.showinfo(title=message("messagebox_title_error"),message=f"{message("minecraft_folder_not_existing",GAME_FOLDER_PATH)}")
+    messagebox.showinfo(title=message("messagebox.title.error"),message=f"{message("minecraft_folder_not_existing",GAME_FOLDER_PATH)}")
     GAME_FOLDER_PATH = ask_game_folder()
 
 # Menu de navigation
@@ -552,7 +552,7 @@ while loop_main == True:
             # SWAP DES PROFILS
             loop_profiles_swap = True
             clear()
-            print(f"\n   {message("profile_swap_title")}")
+            print(f"\n   {message("profile_swap.title")}")
             ui_show("profiles")
             ui_show("profils_swap")
 
@@ -567,9 +567,9 @@ while loop_main == True:
                     ui_show("main")
 
                 elif to_swap not in PROFILES:
-                    print(message("profile_to_swap_not_existing"))
+                    print(message("profile_swap.not_existing"))
                 elif to_swap == loaded_profile:
-                    print(message("profile_already_active"))
+                    print(message("profile_swap.already_active"))
                 else:
                     if not loaded_profile == "None":
                         old_path = PROFILES[loaded_profile]
@@ -593,7 +593,7 @@ while loop_main == True:
             loop_profiles_gestion = True
 
             clear()
-            print(f"\n   {message("profiles_gestion_title")}")
+            print(f"\n   {message("profiles_gestion.title")}")
             ui_show("profiles")
             ui_show("profils_gestion")
 
@@ -604,25 +604,25 @@ while loop_main == True:
                 match user_input:
                     case "1":
                         # Création de profil
-                        print(message("option_cancel"))
-                        profil_name = input(message("profile_naming"))
+                        print(message("global.cancel"))
+                        profil_name = input(message("profile_creation.naming"))
 
                         if profil_name in PROFILES:
-                            print(message("profile_already_exists"))
+                            print(message("global.profile_already_exists"))
                         elif profil_name in forbidden_names:
-                            print(message("forbidden_naming"))
+                            print(message("profiles_gestion.wrong_name"))
                         else:
                             PROFILES = create_profile(PROFILES,profil_name)
                     
                     case "2":
                         # Importation de profil
-                        print(message("option_cancel"))
-                        profile_path = openfolder(message("profile_importing"))
+                        print(message("global.cancel"))
+                        profile_path = openfolder(message("profile_import.select"))
 
                         if os.path.basename(profile_path) in PROFILES:
-                            print(message("profile_already_exists"))
+                            print(message("global.profile_already_exists"))
                         elif os.path.basename(profile_path) in forbidden_names:
-                            print(message("forbidden_importing"))
+                            print(message("profile_import.wrong_name"))
                         else:
                             PROFILES = import_profile(profile_path)                          
 
@@ -630,44 +630,44 @@ while loop_main == True:
 
                     case "3":
                         # Renommer un profil
-                        print(message("option_cancel"))
-                        to_rename = input(message("profile_to_rename"))
+                        print(message("global.cancel"))
+                        to_rename = input(message("profile_rename.select"))
                         if to_rename not in PROFILES:
-                            print(message("profile_to_rename_not_existing"))
+                            print(message("profile_rename.not_existing"))
                         else:
-                            new_name = input(message("new_profile_name"))
+                            new_name = input(message("profile_rename.new_name"))
 
                             if new_name in PROFILES:
-                                print(message("profile_already_exists"))
+                                print(message("global.profile_already_exists"))
                             elif new_name in forbidden_names:
-                                print(message("forbidden_naming"))
+                                print(message("profiles_gestion.wrong_name"))
                             else:
                                 PROFILES = rename_profile(to_rename,new_name)
-                                print(message("successful_renaming",to_rename,new_name))
+                                print(message("profile_rename.successful",to_rename,new_name))
                                 if loaded_profile == to_rename:
                                     loaded_profile = new_name
 
                     case "4":
                         # Suppression de profils
-                        print(message("option_cancel"))
-                        to_delete = input(message("profile_to_delete"))
+                        print(message("global.cancel"))
+                        to_delete = input(message("profile_deletion.select"))
 
                         if to_delete not in PROFILES:
-                            print(message("profile_to_delete_not_existing"))
+                            print(message("profile_deletion.not_existing"))
                         elif to_delete == loaded_profile:
-                            print(message("profile_to_delete_active"))
+                            print(message("profile_deletion.active"))
                 
                         else:
                             PROFILES = delete_profile(to_delete)
-                            print(message("profile_deleted",to_delete))
+                            print(message("profile_deletion.successful",to_delete))
 
                     case "5":
                         # Vérification des profils
-                        print(message("checking_profiles"))
+                        print(message("profile_checking.checking"))
                         PROFILES = check_profiles(PROFILES)
                         if loaded_profile not in PROFILES:
                             loaded_profile = "None"
-                        print(message("checked_profiles"))
+                        print(message("profile_checking.checked"))
                     case "0":
                         loop_profiles_gestion = False
                         clear()
@@ -689,7 +689,7 @@ while loop_main == True:
 
                     case "1":
                         # Reinitialisation complète
-                        if confirmation(titre=message("messagebox_title_confirm"),message=message("messagebox_message_reset")):
+                        if confirmation(titre=message("messagebox.title.confirm"),message=message("messagebox.message.full_reset")):
                             for value in PROFILES.keys():
                                 delete_profile(value)
 
@@ -700,14 +700,14 @@ while loop_main == True:
                         ask_game_folder()
                     
                     case "3":
-                        TRANSFER_DETAIL = confirmation(titre=message("messagebox_title_details"),message=message("messagebox_message_details"))
+                        TRANSFER_DETAIL = confirmation(titre=message("messagebox.title.transfer_details"),message=message("messagebox.message.transfer_details"))
                     
                     case "4":
                         loop_switch_language = True
                         old_language_path = language_path
                         while loop_switch_language:
-                            if confirmation(titre=message("messagebox_title_switch_language"),message=message("messagebox_message_switch_language")):
-                                language_path = openfile(message("new_language_file"))
+                            if confirmation(titre=message("messagebox.title.change_language"),message=message("messagebox.message.change_language")):
+                                language_path = openfile(message("settings.language.select_new"))
                                 if  language_path:
                                     with open(language_path, "r") as file:
                                         LANGUAGE = yaml.safe_load(file)
@@ -715,10 +715,10 @@ while loop_main == True:
                                     loop_checking_file = True
                                     while loop_checking_file:
                                         if check_language() == False:
-                                            print(message("uncorrect_language_file",GITHUB))
+                                            print(message("settings.language.uncorrect",GITHUB))
                                             input("")
                                         else:
-                                            print(message("imported_new_language"))
+                                            print(message("settings.language.imported"))
                                             loop_switch_language = False
                                         loop_checking_file = False
                             else:
@@ -727,7 +727,7 @@ while loop_main == True:
 
 
                     case "5":
-                        auto_update = confirmation(titre=message("messagebox_title_update"),message=message("messagebox_message_update"))
+                        auto_update = confirmation(titre=message("messagebox.title.auto_update"),message=message("messagebox.message.auto_update"))
 
                     case "0":
                         loop_settings = False
@@ -755,7 +755,7 @@ while loop_main == True:
             save_config(config_values)
             
         case "0":
-            if confirmation(titre=message("messagebox_title_confirm"),message=message("quit_program")):
+            if confirmation(titre=message("messagebox.title.confirm"),message=message("quit_program")):
                 loop_main = False
         
         case "debug":
